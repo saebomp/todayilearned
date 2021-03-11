@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom'
 import useInput from './components/UseInput'
 import useTab from './components/UseTab'
 
+
 const Nav = () => {
   return (
+    <>
     <ul className="list">
       <Link to="/useInput">
         <li>useInput</li>
@@ -13,6 +15,7 @@ const Nav = () => {
         <li>useTab</li>
       </Link>
     </ul>
+    </>
   )
 }
 

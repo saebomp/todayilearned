@@ -49,3 +49,7 @@ p {
   left:30px;
   cursor: pointer;
 }
+
+.back a {
+  color:#fff
+}
