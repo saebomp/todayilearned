@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import Nav from './Nav'
+import UseInput from './components/UseInput'
+import UseTab from './components/UseTab'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="title">
+          <span className="back"><IoIosArrowDropleftCircle /></span>
+          What I Learned
+        </div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/useInput" component={UseInput} />
+        <Route exact path="/useTab" component={UseTab} />
+      </div>
+    </Router>
   );
 }
 
+const Home = () => (
+  <Nav />
+)
 export default App;
