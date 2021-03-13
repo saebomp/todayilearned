@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
 
+const styles = {
+  input: {
+    padding: '10px',
+    marginTop:'10px'
+  },
+
+}
+
 
 const useInput = (initialValue, validator) => {
   const [value, setValue] = useState(initialValue)
@@ -29,7 +37,7 @@ const UseInput = () => {
     <div className="useinput">
       <p>Hello, please enter your name</p>
       {/* <input placeholder="Name" value={name.value} onChange={name.onChange} /> */}
-      <input placeholder="Name" {...name} />
+      <input style={styles.input} placeholder="Name" {...name} />
     </div>
     )
   }

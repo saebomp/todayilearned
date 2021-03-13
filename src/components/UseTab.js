@@ -6,6 +6,12 @@ const styles = {
   },
   btn : {
     padding:'5px',
+  },
+  content: {
+    marginTop:'5px',
+    padding:'20px',
+    paddingLeft:'5px',
+    border:'1px solid #eee'
   }
 }
 
@@ -21,14 +27,14 @@ const content = [
 ]
 
 const useTabs = (initialTab, allTabs) => {
-  
+  console.log('initialTab', initialTab)
+  console.log('allTabs', allTabs)
   const [currentIndex, setCurrentIndex] = useState(initialTab)
   return {
     currentItem: allTabs[currentIndex],
     changeItem:setCurrentIndex
   }
 }
-
 
 const UseTab = () => {
   const {currentItem, changeItem} = useTabs(0, content); //content array에서 0번째 index
@@ -38,7 +44,7 @@ const UseTab = () => {
       {content.map((section, index) => 
         <button style={styles.btn} onClick={() => changeItem(index)}>{section.tab}</button>
       )}
-      <div>
+      <div style={styles.content}>
         {currentItem.content}
       </div>
     </div>
