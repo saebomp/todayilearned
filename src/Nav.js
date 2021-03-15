@@ -18,6 +18,9 @@ const Nav = () => {
       <Link to="/useEffect">
         <li>useEffect</li>
       </Link>
+      <Link to="/localStorage">
+        <li>local storage</li>
+      </Link>
     </ul>
     </>
   )
