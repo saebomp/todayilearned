@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 const styles = {
   content: {
@@ -24,7 +24,7 @@ const initialList = [
     done: false,
   },
   {
-    text: 'Studying',
+    text: 'Drinking coffee',
     done: false,
   },
   // {
@@ -36,17 +36,15 @@ const initialList = [
 
 const LocalStorage = () => {
   const [list, setList] = useState(initialList);
-  // const [name, setName] = useState('');
 
-  const handleChange = (e) => {
-    console.log(e.target.value)
+  const handleChange = (event) => {
+
   }
   
   const handleAdd = (e) => {
     e.preventDefault();
-    const text = e.target.value;
-    setList([...list, {text:text, done:false}])
-    console.log('setList', setList)
+
+
   }
   
   return (
@@ -58,9 +56,12 @@ const LocalStorage = () => {
           <li key={index} style={styles.list}>{item.text}</li>
         ))}
       </ul>
-      <form>
+      <ul>
+
+      </ul>
+      <form onSubmit={handleAdd}>
         <input style={styles.input} type="text" placeholder="Item Name" onChange={handleChange} required />
-        <button style={styles.input} type="button" onClick={handleAdd}>+ Add Item</button>
+        <button style={styles.input} type="button">+ Add Item</button>
       </form>
     </div>
     </>
@@ -70,3 +71,5 @@ const LocalStorage = () => {
   export default LocalStorage
 
 //https://www.robinwieruch.de/react-add-item-to-list
+//https://medium.com/@dondeveloper/creating-a-shopping-list-app-using-react-hooks-bfd231cad813
+//이거보고 [value, setValue] 만들어서 concat하는 식으로 해볼것
