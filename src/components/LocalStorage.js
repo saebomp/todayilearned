@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const styles = {
   content: {
@@ -12,11 +12,11 @@ const styles = {
     marginBottom:'20px'
   },
   input: {
-    padding:'10px',
+    padding:'5px',
     outline:'0',
     border:'1px solid #eee',
     marginTop:'10px',
-    width:'302'
+    width:'320px'
   },
   flex: {
     display:'flex',
@@ -27,7 +27,8 @@ const styles = {
     padding:'5px',
     outline:'0',
     border:'1px solid #eee',
-    marginLeft:'2px'
+    marginLeft:'2px',
+    marginBottom:'2px'
   }
 }
 
@@ -74,19 +75,28 @@ const InputText = ({addLists}) => {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <button style={styles.input}>+ add list</button>
+      <button style={styles.btn}>+ add list</button>
     </form>
   );
 }
 
-
-
 const LocalStorage = () => {
   const [lists, setLists] = useState(initialList);
+  useEffect(() => {
+    const lists = JSON.parse(localStorage.getItem('lists'));
+    if (lists) {
+      setLists(lists);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('lists', JSON.stringify(lists));
+  }, [lists]);
 
   const addLists = text => {
-    const newLists = [...lists, { text }];
+    const newLists = [...lists, { text, done:false }];
     setLists(newLists);
+    localStorage.setItem('newLists', JSON.stringify(newLists));
   };
 
   const completeList = index => {
@@ -97,27 +107,29 @@ const LocalStorage = () => {
       newLists[index].done = false
     }
     setLists(newLists);
+    localStorage.setItem('newLists', JSON.stringify(newLists));
   };
 
   const removeList = index => {
     const newLists = [...lists];
     newLists.splice(index,1);
     setLists(newLists)
+    localStorage.removeItem('newLists', JSON.stringify(newLists));
   }
 
   return (
     <div style={styles.content}>
       <h2 style={styles.title}>Todo lists</h2>
       <ul style={styles.list}>
-      {lists.map((lists, index) => (
-        <List
-          key={index}
-          index={index}
-          lists={lists}
-          completeList={completeList}
-          removeList={removeList}
-        />
-      ))}
+        {lists.map((lists, index) => (
+          <List
+            key={index}
+            index={index}
+            lists={lists}
+            completeList={completeList}
+            removeList={removeList}
+          />
+        ))}
       </ul>
       <InputText 
         addLists={addLists} 
