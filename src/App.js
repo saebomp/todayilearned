@@ -6,6 +6,8 @@ import UseInput from './components/UseInput'
 import UseTab from './components/UseTab'
 import UseEffect from './components/UseEffect'
 import LocalStorage from './components/LocalStorage'
+import UseTitle from './components/UseTitle'
+import UseClick from './components/UseClick'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route exact path="/useTab" component={UseTab} />
         <Route exact path="/useEffect" component={UseEffect} />
         <Route exact path="/localStorage" component={LocalStorage} />
+        <Route exact path="/useTitle" component={UseTitle} />
+        <Route exact path="/useClick" component={UseClick} />
       </div>
     </Router>
   );
