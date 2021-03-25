@@ -24,6 +24,9 @@ const Nav = () => {
       <Link to="/useClick">
         <li>useClick</li>
       </Link>
+      <Link to="/useFadein">
+        <li>useFadein</li>
+      </Link>
     </ul>
     </>
   )

@@ -29,8 +29,8 @@ const UseClick = () => {
     <>
     <div style={styles.mar}>
       <h1 ref={title}>Hi</h1>
+      <p>Click "Hi" and check out the console</p>
     </div>
-    <p>when click "Hi" check out the console</p>
     </>
     )
   }

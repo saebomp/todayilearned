@@ -8,6 +8,7 @@ import UseEffect from './components/UseEffect'
 import LocalStorage from './components/LocalStorage'
 import UseTitle from './components/UseTitle'
 import UseClick from './components/UseClick'
+import UseFadein from './components/UseFadein'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/localStorage" component={LocalStorage} />
         <Route exact path="/useTitle" component={UseTitle} />
         <Route exact path="/useClick" component={UseClick} />
+        <Route exact path="/useFadein" component={UseFadein} />
       </div>
     </Router>
   );

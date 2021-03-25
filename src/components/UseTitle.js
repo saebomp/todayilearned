@@ -23,7 +23,7 @@ const UseTitle = () => {
 
   return (
     <div style={styles.mar}>
-      Check out the title
+      Title will change after 5 secs
     </div>
     )
   }
