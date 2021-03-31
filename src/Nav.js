@@ -1,35 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
+import { DATA }  from './Data';
 
 
 const Nav = () => {
+  const [items,setItems] = useState(DATA);
+
   return (
     <>
     <ul className="list">
-      <Link to="/useInput">
-        <li>useInput</li>
+      {items.map((item) => (
+        <Link to={item.path}>
+        <li>{item.title}</li>
       </Link>
-      <Link to="/useTab">
-        <li>useTab</li>
-      </Link>
-      <Link to="/useEffect">
-        <li>useEffect</li>
-      </Link>
-      <Link to="/localStorage">
-        <li>local storage</li>
-      </Link>
-      <Link to="/useTitle">
-        <li>useTitle</li>
-      </Link>
-      <Link to="/useClick">
-        <li>useClick</li>
-      </Link>
-      <Link to="/useFadein">
-        <li>useFadein</li>
-      </Link>
+      ))}
     </ul>
     </>
   )
 }
 
 export default Nav
+//pass a function that iterate over the [] array as an argument (item)
+
+//https://blog.naver.com/nicholasdw/222286137809   :map설명
