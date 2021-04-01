@@ -42,4 +42,10 @@ export let DATA = [
     title : 'useFadein',
     component : 'UseFadein'
   },
+  { 
+    id: 8,
+    path : '/scrollAnimation',
+    title : 'scrollAnimation',
+    component : 'ScrollAnimation'
+  },
 ]
