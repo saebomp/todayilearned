@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Nav from './Nav'
 import Title from './Title'
 import UseInput from './components/UseInput'
@@ -9,7 +9,7 @@ import LocalStorage from './components/LocalStorage'
 import UseTitle from './components/UseTitle'
 import UseClick from './components/UseClick'
 import UseFadein from './components/UseFadein'
-import ScrollAnimation from './components/ScrollAnimation'
+import Count from './components/Count'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/useTitle" component={UseTitle} />
         <Route exact path="/useClick" component={UseClick} />
         <Route exact path="/useFadein" component={UseFadein} />
-        <Route exact path="/scrollAnimation" component={ScrollAnimation} />
+        <Route exact path="/count" component={Count} />
       </div>
     </Router>
   );

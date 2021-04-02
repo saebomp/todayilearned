@@ -17,6 +17,10 @@ p {
   line-height: 1.5;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .title {
   background-color: darkslateblue;
   text-align: center;
@@ -53,3 +57,4 @@ p {
 .back a {
   color:#fff
 }
+

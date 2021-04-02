@@ -44,8 +44,8 @@ export let DATA = [
   },
   { 
     id: 8,
-    path : '/scrollAnimation',
-    title : 'scrollAnimation',
-    component : 'ScrollAnimation'
+    path : '/count',
+    title : 'count',
+    component : 'Count'
   },
 ]
