@@ -10,6 +10,7 @@ import UseTitle from './components/UseTitle'
 import UseClick from './components/UseClick'
 import UseFadein from './components/UseFadein'
 import Count from './components/Count'
+import ProgressSteps from './components/ProgressSteps'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/useClick" component={UseClick} />
         <Route exact path="/useFadein" component={UseFadein} />
         <Route exact path="/count" component={Count} />
+        <Route exact path="/progressSteps" component={ProgressSteps} />
       </div>
     </Router>
   );

@@ -48,4 +48,10 @@ export let DATA = [
     title : 'count',
     component : 'Count'
   },
+  { 
+    id: 9,
+    path : '/progressSteps',
+    title : 'progressSteps',
+    component : 'ProgressSteps'
+  },
 ]
