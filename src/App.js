@@ -18,7 +18,7 @@ function App() {
     <Router>
       <div className="App">
         <Title />
-        <Route exact path="/" component={Home} />
+        <Route path={process.env.PUBLIC_URL + '/'} exact component={Home} />
         <Route exact path="/useInput" component={UseInput} />
         <Route exact path="/useTab" component={UseTab} />
         <Route exact path="/useEffect" component={UseEffect} />

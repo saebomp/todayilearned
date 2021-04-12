@@ -1,5 +1,4 @@
 export let DATA = [
-    
   { 
     id: 1,
     path : '/useInput',

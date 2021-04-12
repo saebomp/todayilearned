@@ -7,7 +7,7 @@ const Title = () => {
   return (
     <div className="title">
       <span className="back">
-      <Link to="/">
+      <Link to={process.env.PUBLIC_URL + '/'}>
         <IoIosArrowDropleftCircle />
       </Link>
       </span>
