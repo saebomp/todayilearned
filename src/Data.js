@@ -48,10 +48,16 @@ export let DATA = [
     title : 'count',
     component : 'Count'
   },
+  // { 
+  //   id: 9,
+  //   path : '/progressSteps',
+  //   title : 'progressSteps',
+  //   component : 'ProgressSteps'
+  // },
   { 
     id: 9,
-    path : '/progressSteps',
-    title : 'progressSteps',
-    component : 'ProgressSteps'
+    path : '/async',
+    title : 'async',
+    component : 'Async'
   },
 ]

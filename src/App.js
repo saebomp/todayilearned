@@ -11,6 +11,7 @@ import UseClick from './components/UseClick'
 import UseFadein from './components/UseFadein'
 import Count from './components/Count'
 import ProgressSteps from './components/ProgressSteps'
+import Async from './components/Async'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/useFadein" component={UseFadein} />
         <Route exact path="/count" component={Count} />
         <Route exact path="/progressSteps" component={ProgressSteps} />
+        <Route exact path="/async" component={Async} />
       </div>
     </Router>
   );
