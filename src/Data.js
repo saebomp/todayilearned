@@ -59,4 +59,10 @@ export let DATA = [
     title : 'async',
     component : 'Async'
   },
+  { 
+    id: 10,
+    path : '/addTodo',
+    title : 'addTodo',
+    component : 'AddTodo'
+  },
 ]
