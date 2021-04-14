@@ -15,6 +15,7 @@ const styles = {
 }
 
 const UserTable = ({users}) => {
+  // (props)라고 쓰면 this.props.users 라고 써야함.
   return (
   <div>
     <table style={styles.table}>
@@ -25,6 +26,7 @@ const UserTable = ({users}) => {
       </thead>
       <tbody>
         {users.length > 0 ? (
+          //ternary oeprator
           users.map((user) => (
           <tr key={user.id}>
             <td style={styles.td}>{user.name}</td>
@@ -32,6 +34,7 @@ const UserTable = ({users}) => {
             <td style={styles.td}>button</td>
           </tr>
         ))
+        //map : iterate through user array
         ) : (
           <tr>
             <td colSpan={3}></td>

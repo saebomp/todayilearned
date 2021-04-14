@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import UserTable from './UserTable'
+import AddUserForm from './AddUserForm'
 
 const styles = {
   margin: {
@@ -19,14 +20,23 @@ const AddTodo = () => {
   const [users, setUsers] = useState(usersData)
   const [currentUser, setCurretUser] = useState(initialFormState)
 
-
+  const addUser = (user) => {
+    user.id = users.length + 1
+    setUsers([...users, user])
+    console.log(users)
+    //AddUserForm.js에서 props.addUser(user)로 addUser에 user를 보내줌. 
+  }
 
   return (
    <div style={styles.margin}>
      <h2>View Users</h2>
+     <AddUserForm
+      addUser={addUser}
+     />
      <UserTable
       users={users}
      />
+     {/* pass props (userdata) to UserTable */}
    </div>
   )
   }
