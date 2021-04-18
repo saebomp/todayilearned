@@ -12,7 +12,7 @@ import UseFadein from './components/UseFadein'
 import Count from './components/Count'
 import ProgressSteps from './components/ProgressSteps'
 import Async from './components/Async'
-import AddTodo from './components/Todo/AddTodo'
+import Todolist from './components/Todo/Todolist'
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         <Route exact path="/count" component={Count} />
         <Route exact path="/progressSteps" component={ProgressSteps} />
         <Route exact path="/async" component={Async} />
-        <Route exact path="/addTodo" component={AddTodo} />
+        <Route exact path="/todolist" component={Todolist} />
       </div>
     </Router>
   );

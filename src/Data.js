@@ -61,8 +61,8 @@ export let DATA = [
   },
   { 
     id: 10,
-    path : '/addTodo',
-    title : 'addTodo',
-    component : 'AddTodo'
+    path : '/todolist',
+    title : 'todolist',
+    component : 'Todolist'
   },
 ]
