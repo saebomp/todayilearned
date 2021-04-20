@@ -11,10 +11,14 @@ const styles = {
     borderBottom:'1px solid #eee',
     padding:'10px 0',
     lineHeight:1
+  },
+  btn : {
+    padding:'5px',
+    marginLeft:'5px'
   }
 }
 
-const UserTable = ({users}) => {
+const UserTable = ({users, deleteUser, editRow}) => {
   // (props)라고 쓰면 this.props.users 라고 써야함.
   return (
   <div>
@@ -31,7 +35,14 @@ const UserTable = ({users}) => {
           <tr key={user.id}>
             <td style={styles.td}>{user.name}</td>
             <td style={styles.td}>{user.username}</td>
-            <td style={styles.td}>button</td>
+            <td style={styles.td}>
+              <button style={styles.btn} onClick={() => editRow(user)}>
+                Edit
+              </button>
+              <button style={styles.btn} onClick={() => deleteUser(user.id)}>
+                Delete
+              </button>
+            </td>
           </tr>
         ))
         //map : iterate through user array

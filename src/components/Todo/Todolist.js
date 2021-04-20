@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import UserTable from './UserTable'
 import AddUserForm from './AddUserForm'
+import EditUserForm from './EditUserForm'
 
 const styles = {
   margin: {
@@ -18,7 +19,8 @@ const AddTodo = () => {
   ]
   const initialFormState = {id:null, name:'', username:''}
   const [users, setUsers] = useState(usersData)
-  const [currentUser, setCurretUser] = useState(initialFormState)
+  const [currentUser, setCurrentUser] = useState(initialFormState)
+  const [editing, setEditing] = useState(false)
 
   const addUser = (user) => {
     user.id = users.length + 1
@@ -27,17 +29,51 @@ const AddTodo = () => {
     //AddUserForm.js에서 props.addUser(user)로 addUser에 user를 보내줌. 
   }
 
+  const deleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id))
+  }
+
+  const updateUser = (id, updateUser) => {
+    setEditing(false)
+    console.log('updateUser', updateUser)
+    setUsers(users.map((user) =>(
+      user.id === id ? updateUser:user
+    )))
+  }
+
+  const editRow = (user) => {
+    setEditing(true)
+    setCurrentUser({id:user.id, name:user.name, username:user.username})
+  }
+
   return (
-   <div style={styles.margin}>
-     <h2>View Users</h2>
-     <AddUserForm
-      addUser={addUser}
-     />
-     <UserTable
+  <div style={styles.margin}>
+    {editing ? (
+    <div>
+      <h2>Edit Users</h2>
+      <EditUserForm
+        editing={editing}
+        setEditin={setEditing}
+        currentUser={currentUser}
+        updateUser={updateUser}
+      />
+    </div>
+    ) : (
+    <div>
+      <h2>View Users</h2>
+      <AddUserForm
+        addUser={addUser}
+        />
+    </div>
+    )
+  }
+    <UserTable
       users={users}
-     />
-     {/* pass props (userdata) to UserTable */}
-   </div>
+      deleteUser={deleteUser}
+      editRow={editRow}
+    />
+    {/* pass props (userdata) to UserTable */}
+  </div>
   )
   }
   
