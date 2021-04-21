@@ -13,6 +13,7 @@ import Count from './components/Count'
 import ProgressSteps from './components/ProgressSteps'
 import Async from './components/Async'
 import Todolist from './components/Todo/Todolist'
+import Filter from './components/Filter'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/progressSteps" component={ProgressSteps} />
         <Route exact path="/async" component={Async} />
         <Route exact path="/todolist" component={Todolist} />
+        <Route exact path="/filter" component={Filter} />
       </div>
     </Router>
   );

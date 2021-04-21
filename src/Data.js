@@ -65,4 +65,10 @@ export let DATA = [
     title : 'todolist',
     component : 'Todolist'
   },
+  { 
+    id: 11,
+    path : '/filter',
+    title : 'filter',
+    component : 'Filter'
+  },
 ]
