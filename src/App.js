@@ -15,6 +15,7 @@ import Async from './components/Async'
 import Todolist from './components/Todo/Todolist'
 import Filter from './components/Filter'
 import Bind from './components/Bind'
+import Props from './components/Props'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/todolist" component={Todolist} />
         <Route exact path="/filter" component={Filter} />
         <Route exact path="/bind" component={Bind} />
+        <Route exact path="/props" component={Props} />
       </div>
     </Router>
   );

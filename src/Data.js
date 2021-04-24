@@ -77,4 +77,10 @@ export let DATA = [
     title : 'bind',
     component : 'Bind'
   },
+  { 
+    id: 13,
+    path : '/props',
+    title : 'props',
+    component : 'Props'
+  },
 ]
