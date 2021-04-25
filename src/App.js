@@ -16,6 +16,7 @@ import Todolist from './components/Todo/Todolist'
 import Filter from './components/Filter'
 import Bind from './components/Bind'
 import Props from './components/Props'
+import Formwave from './components/Formwave'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/filter" component={Filter} />
         <Route exact path="/bind" component={Bind} />
         <Route exact path="/props" component={Props} />
+        <Route exact path="/formwave" component={Formwave} />
       </div>
     </Router>
   );

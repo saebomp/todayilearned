@@ -83,4 +83,10 @@ export let DATA = [
     title : 'props',
     component : 'Props'
   },
+  { 
+    id: 14,
+    path : '/formwave',
+    title : 'formwave',
+    component : 'Formwave'
+  },
 ]
