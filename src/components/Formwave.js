@@ -9,19 +9,37 @@ const styles = {
 }
 
 const Formwave = () => {
- 
+  let user_inputs = ['Email', 'Password'];
+  let email = user_inputs.map(function(user_input, index){
+    if (index === 0) {
+      return <span>{user_input}</span>
+    }
+});
+let password = user_inputs.map(function(user_input, index){
+  if (index === 1) {
+    return <span>{user_input}</span>
+  } else {
+  }
+});
+
   return (
     <div className="form">
       <div className="container">
-        <h1>Please Login</h1>
+        <p>Please Login</p>
           <form className="formdiv">
             <div className="form-control">
-              <input type="text" required />
-              <label>Email</label>
+              <input 
+                onClick={(e) => {
+                  console.log('Focused on input');
+                }}
+                type="text" required 
+              />
+              
+              <label>{email}</label>
             </div>
             <div className="form-control">
               <input type="password" required />
-              <label>Password</label>
+              <label>{password}</label>
             </div>
             <button className="btn">Login</button>
             <p className="text">Don't have an account? <a href="#">Register</a> </p>
