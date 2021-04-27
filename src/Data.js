@@ -89,4 +89,16 @@ export let DATA = [
     title : 'formwave',
     component : 'Formwave'
   },
+  { 
+    id: 15,
+    path : '/setTimeOut',
+    title : 'setTimeOut',
+    component : 'SetTimeOut'
+  },
+  { 
+    id: 16,
+    path : '/toggleClassName',
+    title : 'toggleClassName',
+    component : 'ToggleClassName'
+  },
 ]

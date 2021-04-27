@@ -144,4 +144,19 @@ body {
 .form .form-control input:focus + label span,
 .form .form-control input:valid + label span {
   color: lightblue;
-  transform: translateY(-30px);}
+  transform: translateY(-30px);
+}
+
+/*settimeout*/
+.lightblue {
+  margin:10px;
+  width:100%;
+  height:500px;
+  background-color:lightblue;
+}
+.lightpink {
+  margin:10px;
+  width:100%;
+  height:500px;
+  background-color:lightpink;
+}
