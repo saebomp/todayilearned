@@ -32,7 +32,8 @@ const SetTimeOut = () => {
     <div style={styles.mar}>
       <h1>{count}</h1>
         <button onClick={counter} style={styles.btn}>Increment</button>
-      </div>
+        <p>The number would be back to "1" after 3 seconds</p>
+    </div>
     </>
     )
   }
