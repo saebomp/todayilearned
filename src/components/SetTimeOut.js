@@ -22,6 +22,7 @@ const SetTimeOut = () => {
      }, 3000);
  
     return () => clearTimeout(timeout);
+    //clearTimeout 안해주면 버튼 여러번 클릭할때마다 count 가 1로 돌아감. 한번에 6까지 count 를 올리고 3초뒤에 count가 1로 돌아가게 하기위해서 clearTimeout 해줌
    },[count]);
 
 
