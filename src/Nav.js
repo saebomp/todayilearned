@@ -4,7 +4,7 @@ import { DATA }  from './Data';
 
 
 const Nav = () => {
-  const [items,setItems] = useState(DATA);
+  const [items] = useState(DATA);
 
   return (
     <>

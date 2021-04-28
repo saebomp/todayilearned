@@ -1,12 +1,4 @@
-import React, {useState} from 'react';
-
-const styles = {
-  margin: {
-    padding: '10px',
-    marginTop:'10px',
-  },
-
-}
+import React from 'react';
 
 const Formwave = () => {
   let user_inputs = ['Email', 'Password'];
