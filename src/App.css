@@ -160,3 +160,103 @@ body {
   height:500px;
   background-color:lightpink;
 }
+
+/*flexbox*/
+.flexbox h2 {
+  margin:20px 0;
+}
+
+.flexbox h3 {
+  margin:10px 0;
+}
+
+.flex-direction {
+  display: flex;
+}
+
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.divbox {
+  width:100px;
+  height:100px;
+  background-color:aquamarine;
+  margin-right:10px;
+  margin-bottom:10px;
+  text-align: center;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.flex1 {
+  flex:1
+}
+
+.flex2 {
+  flex:2
+}
+
+.align-items {
+  display: flex;
+  height:200px;
+  background:#eee
+}
+
+.align-items-flex-start {
+  align-items:flex-start;
+}
+
+.align-items-flex-end {
+  align-items:flex-end;
+}
+
+.align-items-center {
+  align-items:center;
+}
+
+.justify-content {
+  display: flex;
+  background-color: #eee;
+}
+
+.justify-content > div, .flex-basis > div {
+  margin:0
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-basis {
+  background-color: #eee;
+}
+
+.flex-basis-100px {
+  flex-basis:100px
+}
+
+.flex-basis-200px {
+  flex-basis:200px;
+  background-color: bisque;
+}
+
+.flex-basis-50p {
+  flex-basis:50%;
+  background-color: cadetblue;
+}
+
+.flex-basis-auto {
+  flex-basis:auto;
+  background-color:coral;
+}

@@ -101,4 +101,10 @@ export let DATA = [
     title : 'toggleClassName',
     component : 'ToggleClassName'
   },
+  { 
+    id: 17,
+    path : '/flexbox',
+    title : 'flexbox',
+    component : 'Flexbox'
+  },
 ]
