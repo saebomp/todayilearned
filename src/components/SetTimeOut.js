@@ -6,7 +6,8 @@ const styles = {
   },
   btn: {
     padding:'10px',
-    margin:'5px'
+    marginTop:'5px',
+    marginBottom:'5px'
   },
 
 }

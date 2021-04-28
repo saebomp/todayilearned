@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 const styles = {
   btn: {
     padding:'10px',
-    margin:'5px'
+    marginTop:'5px'
   },
 
 }
