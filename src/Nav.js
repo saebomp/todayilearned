@@ -10,9 +10,7 @@ const Nav = () => {
     <>
     <ul className="list">
       {items.map((item) => (
-        <Link to={item.path}>
-        <li>{item.title}</li>
-      </Link>
+        <li><Link to={item.path}>{item.title}</Link></li>
       ))}
     </ul>
     </>
