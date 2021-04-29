@@ -20,6 +20,7 @@ import Formwave from './components/Formwave'
 import SetTimeOut from './components/SetTimeOut'
 import ToggleClassName from './components/ToggleClassName'
 import Flexbox from './components/Flexbox'
+import CenterElement from './components/CenterElement'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route exact path="/setTimeOut" component={SetTimeOut} />
         <Route exact path="/toggleClassName" component={ToggleClassName} />
         <Route exact path="/flexbox" component={Flexbox} />
+        <Route exact path="/centerElement" component={CenterElement} />
       </div>
     </Router>
   );

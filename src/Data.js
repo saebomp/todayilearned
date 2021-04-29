@@ -107,4 +107,10 @@ export let DATA = [
     title : 'flexbox',
     component : 'Flexbox'
   },
+  { 
+    id: 18,
+    path : '/centerElement',
+    title : 'centerElement',
+    component : 'CenterElement'
+  },
 ]
