@@ -113,4 +113,10 @@ export let DATA = [
     title : 'centerElement',
     component : 'CenterElement'
   },
+  { 
+    id: 18,
+    path : '/darkMode',
+    title : 'darkMode',
+    component : 'DarkMode'
+  },
 ]

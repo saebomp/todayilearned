@@ -42,6 +42,10 @@ body {
   padding:5px
 }
 
+.list li a {
+  display: block;
+}
+
 .useinput {
   background-color:#ececec;
   padding:10px;
