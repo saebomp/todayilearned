@@ -264,3 +264,7 @@ body {
   flex-basis:auto;
   background-color:coral;
 }
+
+.darkmode section div {
+  margin-top:15px
+}

@@ -4,12 +4,19 @@ import { GlobalStyles } from "./GlobalStyles"
 import { lightTheme, darkTheme } from "./Themes"
 import {UseDarkMode} from './UseDarkMode'
 import Toggle from './Toggle'
+import styled from "styled-components"
 
 const styles = {
   mar: {
     margin:'10px'
   },
 }
+
+const Section = styled.section`
+  border: 2px solid ${({ theme }) => theme.boxBorder};
+  border-radius: 30px;
+  }
+`;
 
 const DarkMode = () => {
   const [theme, themeToggler, mountedComponent] = UseDarkMode();
@@ -19,7 +26,7 @@ const DarkMode = () => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-        <div style={styles.mar}>
+        <div style={styles.mar} className="darkmode">
           <Toggle theme={theme} toggleTheme={themeToggler} />
             <section>
               <h2>COVID-19 gargle test kits now available in Surrey schools</h2>
