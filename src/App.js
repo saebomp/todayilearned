@@ -21,7 +21,7 @@ import SetTimeOut from './components/SetTimeOut'
 import ToggleClassName from './components/ToggleClassName'
 import Flexbox from './components/Flexbox'
 import CenterElement from './components/CenterElement'
-import DarkMode from './components/DarkMode'
+import DarkMode from './components/DarkMode/DarkMode'
 
 function App() {
   return (
