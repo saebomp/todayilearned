@@ -12,11 +12,6 @@ const styles = {
   },
 }
 
-const Section = styled.section`
-  border: 2px solid ${({ theme }) => theme.boxBorder};
-  border-radius: 30px;
-  }
-`;
 
 const DarkMode = () => {
   const [theme, themeToggler, mountedComponent] = UseDarkMode();

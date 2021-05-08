@@ -9,6 +9,6 @@ export const GlobalStyles = createGlobalStyle`
   section {
     border:${({ theme }) => theme.boxBorder};
     padding:10px;
-    margin-top:10px
+    margin-top:10px;
   }
   `
