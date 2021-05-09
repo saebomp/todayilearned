@@ -119,4 +119,10 @@ export let DATA = [
     title : 'darkMode',
     component : 'DarkMode'
   },
+  { 
+    id: 19,
+    path : '/mobileNavigation',
+    title : 'mobileNavigation',
+    component : 'MobileNavigation'
+  },
 ]

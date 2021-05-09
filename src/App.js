@@ -22,6 +22,7 @@ import ToggleClassName from './components/ToggleClassName'
 import Flexbox from './components/Flexbox'
 import CenterElement from './components/CenterElement'
 import DarkMode from './components/DarkMode/DarkMode'
+import MobileNavigation from './components/MobileNavigation'
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route exact path="/flexbox" component={Flexbox} />
         <Route exact path="/centerElement" component={CenterElement} />
         <Route exact path="/darkMode" component={DarkMode} />
+        <Route exact path="/mobileNavigation" component={MobileNavigation} />
       </div>
     </Router>
   );
