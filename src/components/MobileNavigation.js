@@ -20,9 +20,9 @@ const [open, setOpen] = useState(false);
       </button>
       <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_logo.png" alt="Logo" className="logo" />
       <p className="text">Mobile Navigation</p>
-      <div className={`${open ? "nav nav-black vision" : "nav nav-black"}`}> 
-        <div className={`${open ? "nav nav-red vision" : "nav nav-red"}`}> 
-          <div className={`${open ? "nav nav-white vision" : "nav nav-white"}`}> 
+      <div className={`${open ? "nav nav-black visible" : "nav nav-black"}`}> 
+        <div className={`${open ? "nav nav-red visible" : "nav nav-red"}`}> 
+          <div className={`${open ? "nav nav-white visible" : "nav nav-white"}`}> 
             <button className="nav-btn close-btn" onClick={() => setOpen(false)}>
               <i><GoX /></i>
             </button>
