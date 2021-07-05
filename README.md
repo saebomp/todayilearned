@@ -7,3 +7,6 @@ npm start<br />
 https://saebomp.github.io/todayilearned
 ## Status
 Project is in progress
+# Inspiration
+Project inspired by https://www.youtube.com/playlist?list=PLu8EoSxDXHP6CGK4YVJhL_VWetA865GOH
+https://github.com/bradtraversy/50projects50days
