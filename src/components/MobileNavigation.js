@@ -18,7 +18,7 @@ const [open, setOpen] = useState(false);
       <button className="nav-btn open-btn" onClick={() => setOpen(true)}>
         <i><GoThreeBars /></i>
       </button>
-      <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_logo.png" alt="Logo" className="logo" />
+      {/* <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_logo.png" alt="Logo" className="logo" /> */}
       <p className="text">Mobile Navigation</p>
       <div className={`${open ? "nav nav-black visible" : "nav nav-black"}`}> 
         <div className={`${open ? "nav nav-red visible" : "nav nav-red"}`}> 
@@ -26,7 +26,7 @@ const [open, setOpen] = useState(false);
             <button className="nav-btn close-btn" onClick={() => setOpen(false)}>
               <i><GoX /></i>
             </button>
-            <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_logo.png" alt="Logo" className="logo" />
+            {/* <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_logo.png" alt="Logo" className="logo" /> */}
             <ul className="list1">
               <li><a href="#">Teams</a></li>
               <li><a href="#">Locations</a></li>

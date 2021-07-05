@@ -1,10 +1,10 @@
 export let DATA = [
-  { 
-    id: 1,
-    path : '/useInput',
-    title : 'useInput',
-    component : 'UseInput'
-  },
+  // { 
+  //   id: 1,
+  //   path : '/useInput',
+  //   title : 'useInput',
+  //   component : 'UseInput'
+  // },
   { 
     id: 2,
     path : '/useTab',
@@ -23,24 +23,24 @@ export let DATA = [
     title : 'local Storage',
     component : 'LocalStorage'
   },
-  { 
-    id: 5,
-    path : '/useTitle',
-    title : 'useTitle',
-    component : 'UseTitle'
-  },
-  { 
-    id: 6,
-    path : '/useClick',
-    title : 'useClick',
-    component : 'UseClick'
-  },
-  { 
-    id: 7,
-    path : '/useFadein',
-    title : 'useFadein',
-    component : 'UseFadein'
-  },
+  // { 
+  //   id: 5,
+  //   path : '/useTitle',
+  //   title : 'useTitle',
+  //   component : 'UseTitle'
+  // },
+  // { 
+  //   id: 6,
+  //   path : '/useClick',
+  //   title : 'useClick',
+  //   component : 'UseClick'
+  // },
+  // { 
+  //   id: 7,
+  //   path : '/useFadein',
+  //   title : 'useFadein',
+  //   component : 'UseFadein'
+  // },
   { 
     id: 8,
     path : '/count',
@@ -124,5 +124,17 @@ export let DATA = [
     path : '/mobileNavigation',
     title : 'mobileNavigation',
     component : 'MobileNavigation'
+  },
+  { 
+    id: 20,
+    path : '/drawing',
+    title : 'drawing',
+    component : 'Drawing'
+  },
+  { 
+    id: 21,
+    path : '/stickyNavigation',
+    title : 'stickyNavigation',
+    component : 'StickyNavigation'
   },
 ]

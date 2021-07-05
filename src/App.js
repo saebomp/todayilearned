@@ -23,6 +23,8 @@ import Flexbox from './components/Flexbox'
 import CenterElement from './components/CenterElement'
 import DarkMode from './components/DarkMode/DarkMode'
 import MobileNavigation from './components/MobileNavigation'
+import Drawing from './components/Drawing'
+import StickyNavigation from './components/StickyNavigation'
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
         <Route exact path="/centerElement" component={CenterElement} />
         <Route exact path="/darkMode" component={DarkMode} />
         <Route exact path="/mobileNavigation" component={MobileNavigation} />
+        <Route exact path="/drawing" component={Drawing} />
+        <Route exact path="/stickyNavigation" component={StickyNavigation} />
       </div>
     </Router>
   );
