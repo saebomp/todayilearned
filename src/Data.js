@@ -137,4 +137,10 @@ export let DATA = [
     title : 'stickyNavigation',
     component : 'StickyNavigation'
   },
+  { 
+    id: 22,
+    path : '/form',
+    title : 'form',
+    component : 'Form'
+  },
 ]

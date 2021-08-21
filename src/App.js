@@ -25,6 +25,7 @@ import DarkMode from './components/DarkMode/DarkMode'
 import MobileNavigation from './components/MobileNavigation'
 import Drawing from './components/Drawing'
 import StickyNavigation from './components/StickyNavigation'
+import Form from './components/Form'
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route exact path="/mobileNavigation" component={MobileNavigation} />
         <Route exact path="/drawing" component={Drawing} />
         <Route exact path="/stickyNavigation" component={StickyNavigation} />
+        <Route exact path="/form" component={Form} />
       </div>
     </Router>
   );
