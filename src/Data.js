@@ -143,4 +143,10 @@ export let DATA = [
     title : 'form',
     component : 'Form'
   },
+  { 
+    id: 23,
+    path : '/crud',
+    title : 'crud',
+    component : 'Crud'
+  },
 ]
