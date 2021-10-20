@@ -5,6 +5,7 @@ class Crud extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        newItem:'',
         todos: [
             {   
                 id:1,
@@ -24,7 +25,7 @@ class Crud extends Component {
 
     handleChange = (e) => {
         this.setState({ 
-            item: e.target.value
+            newItem: e.target.value
         });
         console.log('handlechange', e.target.value)
     }
@@ -36,12 +37,16 @@ class Crud extends Component {
                 {
                     id:this.state.todos.length + 1,
                     status:'active',
-                    item: this.state.item
+                    item: this.state.newItem
                 },
             ]
         });
-        console.log('state', this.state.todos)
+        this.setState({ 
+            newItem:''
+        });
+        // console.log('state', this.state.todos)
     }
+
 
 
     render = () => {
@@ -51,7 +56,7 @@ class Crud extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <input 
                             type="text" 
-                            value={this.state.todos.item}
+                            value={this.state.newItem}
                             onChange={this.handleChange}
                         />
                         <button type="submit">add</button>
@@ -70,3 +75,4 @@ class Crud extends Component {
 export default Crud;
 
 // https://inventive.io/insights/create-a-simple-todo-list-with-react/
+// https://codepen.io/TiffanyCJanzen/pen/EpzVzR
