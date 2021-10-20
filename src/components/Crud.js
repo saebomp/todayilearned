@@ -20,12 +20,19 @@ class Crud extends Component {
       this.handleChange = this.handleChange.bind(this);
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({item:e.target.value,status:'active'})
-    }
     handleChange = (e) => {
-        this.setState({item:e.target.value})
+        this.setState({item:e.taret.value})
+    }
+    handleSubmit = (e) => {
+        let todo;
+        e.preventDefault();
+        if(this.state.item == ''){
+            return;
+        }else {
+            todo = {item:this.state.item, status:'active'}
+        }
+        this.setState({todos:[...this.state.todos, todo], item:''});
+
     }
 
     render = () => {
@@ -33,8 +40,12 @@ class Crud extends Component {
             <div>
                 <div className="input">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" onChange={this.handleChange}/>
-                        <button type="submit">Submit</button>
+                    <input 
+                        type="text" 
+                        value={this.state.todos.item}
+                        onChange={this.handleChange}
+                    />
+                    <input type="submit" />
                     </form>
                 </div>
                 <div>
@@ -49,4 +60,4 @@ class Crud extends Component {
       
 export default Crud;
 
-  //https://www.youtube.com/watch?v=s6KmBH1Ew4Q
+// https://www.kirupa.com/react/simple_todo_app_react.htm
