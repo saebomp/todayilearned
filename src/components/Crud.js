@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
-
-
+const styles = {
+    list: {
+        listStyle:'none',
+        display:'flex',
+    },
+    btn: {
+        paddingBottom:'3px',
+        width:'20px',
+        marginLeft:'10px'
+    },
+}
 class Crud extends Component {
     constructor(props) {
       super(props);
@@ -64,7 +73,14 @@ class Crud extends Component {
                 </div>
                 <div>
                     {this.state.todos.map((todo)  => (
-                        <li>{todo.item}</li>
+                        <li style={styles.list}>
+                            {todo.item}
+                            <span>
+                                <img 
+                                style={styles.btn} 
+                                src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
+                            </span>
+                        </li>
                     ))}
                 </div>
             </div>
@@ -76,3 +92,4 @@ export default Crud;
 
 // https://inventive.io/insights/create-a-simple-todo-list-with-react/
 // https://codepen.io/TiffanyCJanzen/pen/EpzVzR
+// https://icons8.com/
