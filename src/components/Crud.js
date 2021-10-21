@@ -30,6 +30,7 @@ class Crud extends Component {
       }
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleChange = (e) => {
@@ -55,6 +56,14 @@ class Crud extends Component {
         });
         // console.log('state', this.state.todos)
     }
+    handleDelete = (id) => {
+       const newTodos = this.state.todos.filter((todo) => todo.id !== id)
+       this.setState(
+            {
+                todos:newTodos
+            }
+        )
+    }
 
 
 
@@ -76,7 +85,8 @@ class Crud extends Component {
                         <li style={styles.list}>
                             {todo.item}
                             <span>
-                                <img 
+                                <img
+                                 onClick={() => this.handleDelete(todo.id)} 
                                 style={styles.btn} 
                                 src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
                             </span>
