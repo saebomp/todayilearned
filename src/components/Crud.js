@@ -7,7 +7,8 @@ const styles = {
     btn: {
         paddingBottom:'3px',
         width:'20px',
-        marginLeft:'10px'
+        marginLeft:'10px',
+        cursor:'pointer'
     },
 }
 class Crud extends Component {
@@ -26,11 +27,13 @@ class Crud extends Component {
                 status:'inactive',
                 item:'Shop Grocery'
             },
-        ]
+        ],
+        editing:false
       }
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.handleDelete = this.handleDelete.bind(this);
+      this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleChange = (e) => {
@@ -51,6 +54,8 @@ class Crud extends Component {
                 },
             ]
         });
+            
+
         this.setState({ 
             newItem:''
         });
@@ -65,6 +70,11 @@ class Crud extends Component {
         )
     }
 
+    handleEdit = () => {
+        this.setState({
+            editing:true
+        })
+    }
 
 
     render = () => {
@@ -72,12 +82,29 @@ class Crud extends Component {
             <div>
                 <div className="input">
                     <form onSubmit={this.handleSubmit}>
-                        <input 
-                            type="text" 
-                            value={this.state.newItem}
-                            onChange={this.handleChange}
-                        />
-                        <button type="submit">add</button>
+                        { this.state.editing ? (
+                            <div>
+                                <input 
+                                    type="text" 
+                                    value={this.state.newItem}
+                                    onChange={this.handleChange}
+                                />
+                                <button type="submit">edit</button>
+                                <button 
+                                    type="submit" 
+                                    onClick = {(e) => this.setState({editing: false})}>cancel</button>
+                            </div>
+                        ) : (
+                            <div>
+                                <input 
+                                    type="text" 
+                                    value={this.state.newItem}
+                                    onChange={this.handleChange}
+                                />
+                                <button type="submit">add</button>
+                            </div>
+                        )
+                        }
                     </form>
                 </div>
                 <div>
@@ -89,6 +116,12 @@ class Crud extends Component {
                                  onClick={() => this.handleDelete(todo.id)} 
                                 style={styles.btn} 
                                 src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
+                            </span>
+                            <span>
+                                <img
+                                 onClick={() => this.handleEdit(todo.item)} 
+                                style={styles.btn} 
+                                src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
                             </span>
                         </li>
                     ))}
