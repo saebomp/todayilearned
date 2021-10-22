@@ -44,6 +44,7 @@ class Crud extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        if(!this.state.newItem =='') { 
         this.setState({
             todos: [
                 ...this.state.todos,
@@ -53,8 +54,10 @@ class Crud extends Component {
                     item: this.state.newItem
                 },
             ]
-        });
+        })
+        } else {
             
+        } 
 
         this.setState({ 
             newItem:''
@@ -64,18 +67,13 @@ class Crud extends Component {
     handleDelete = (id) => {
        const newTodos = this.state.todos.filter((todo) => todo.id !== id)
        this.setState(
-            {
-                todos:newTodos
-            }
+            { todos:newTodos }
         )
     }
 
     handleEdit = () => {
-        this.setState({
-            editing:true
-        })
+        this.setState({ editing:true })
     }
-
 
     render = () => {
         return (
