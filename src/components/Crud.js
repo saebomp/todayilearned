@@ -55,9 +55,7 @@ class Crud extends Component {
                 },
             ]
         })
-        } else {
-            
-        } 
+        } else {} 
 
         this.setState({ 
             newItem:''
@@ -67,32 +65,39 @@ class Crud extends Component {
     handleDelete = (id) => {
        const newTodos = this.state.todos.filter((todo) => todo.id !== id)
        this.setState(
-            { todos:newTodos }
+            { todos: newTodos}
         )
     }
 
-    handleEdit = () => {
-        this.setState({ editing:true })
+    handleEdit = (item) => {
+        this.setState({ editing:true,  newItem: item})
     }
+
 
     render = () => {
         return (
             <div>
                 <div className="input">
-                    <form onSubmit={this.handleSubmit}>
-                        { this.state.editing ? (
+                    { this.state.editing ? (
+                        <form onSubmit={this.handleSubmit}>
                             <div>
                                 <input 
                                     type="text" 
                                     value={this.state.newItem}
                                     onChange={this.handleChange}
                                 />
-                                <button type="submit">edit</button>
+                                <button 
+                                    type="submit"
+                                    onChange={this.handleChange}
+                                >
+                                    edit</button>
                                 <button 
                                     type="submit" 
-                                    onClick = {(e) => this.setState({editing: false})}>cancel</button>
+                                    onClick = {(e) => this.setState({editing: false,  newItem:''})}>cancel</button>
                             </div>
+                        </form>
                         ) : (
+                        <form onSubmit={this.handleSubmit}>
                             <div>
                                 <input 
                                     type="text" 
@@ -101,9 +106,9 @@ class Crud extends Component {
                                 />
                                 <button type="submit">add</button>
                             </div>
+                        </form>
                         )
-                        }
-                    </form>
+                    }
                 </div>
                 <div>
                     {this.state.todos.map((todo)  => (

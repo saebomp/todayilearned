@@ -53,7 +53,7 @@ const AddTodo = () => {
       <h2>Edit Users</h2>
       <EditUserForm
         editing={editing}
-        setEditin={setEditing}
+        setEditing={setEditing}
         currentUser={currentUser}
         updateUser={updateUser}
       />
