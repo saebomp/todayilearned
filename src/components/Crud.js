@@ -16,6 +16,13 @@ class Crud extends Component {
       super(props);
       this.state = {
         newItem:'',
+        initialTodos:[
+            {   
+                id:'',
+                status:'',
+                item:''
+            }
+        ],
         todos: [
             {   
                 id:1,
@@ -34,6 +41,7 @@ class Crud extends Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleDelete = this.handleDelete.bind(this);
       this.handleEdit = this.handleEdit.bind(this);
+      this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     handleChange = (e) => {
@@ -69,26 +77,45 @@ class Crud extends Component {
         )
     }
 
-    handleEdit = (item) => {
-        this.setState({ editing:true,  newItem: item})
+    handleEdit = (todo) => {
+        console.log('todooooo', todo)
+        this.setState({ 
+            editing:'false',
+            newItem:todo.item,
+            initialTodos: [
+                {
+                    id:todo.id,
+                    status:todo.status,
+                    item: todo.item
+                },
+            ] 
+        })
     }
 
+    handleUpdate = (id, updateTodo) => {
+        const editTodo = this.state.todos.filter((updateTodo) => updateTodo.id === id)
+        this.setState({ 
+            editing:true,  
+            todos: [...this.state.todos, editTodo], 
+        })
+    }
 
+  
     render = () => {
         return (
             <div>
                 <div className="input">
                     { this.state.editing ? (
-                        <form onSubmit={this.handleSubmit}>
+                        <form>
                             <div>
                                 <input 
                                     type="text" 
                                     value={this.state.newItem}
-                                    onChange={this.handleChange}
+                                    // onChange={this.handleEdit}
                                 />
                                 <button 
                                     type="submit"
-                                    onChange={this.handleChange}
+                                    onChange={this.handleUpdate}
                                 >
                                     edit</button>
                                 <button 
@@ -122,7 +149,7 @@ class Crud extends Component {
                             </span>
                             <span>
                                 <img
-                                 onClick={() => this.handleEdit(todo.item)} 
+                                 onClick={() => this.handleEdit(todo)} 
                                 style={styles.btn} 
                                 src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
                             </span>
