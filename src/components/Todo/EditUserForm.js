@@ -21,9 +21,12 @@ const EditUserForm = (props) => {
   const [user, setUser] = useState(props.currentUser)
 
   const handleInputChange =(event)=> {
-    console.log(event);
     const {name, value} = event.target;
+    console.log('namenamenamename', name);
+    console.log('valuevaluevalue', value);
     setUser({...user, [name]:value})
+    
+    console.log('useruseruseruser', user);
   }
 
   const handleSubmit = (event) => {

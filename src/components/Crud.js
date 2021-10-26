@@ -16,6 +16,7 @@ class Crud extends Component {
       super(props);
       this.state = {
         newItem:'',
+        updateItem:'',
         initialTodos:[
             {   
                 id:'',
@@ -42,6 +43,7 @@ class Crud extends Component {
       this.handleDelete = this.handleDelete.bind(this);
       this.handleEdit = this.handleEdit.bind(this);
       this.handleUpdate = this.handleUpdate.bind(this);
+      this.handleInputEdit = this.handleInputEdit.bind(this);
     }
 
     handleChange = (e) => {
@@ -72,52 +74,66 @@ class Crud extends Component {
     }
     handleDelete = (id) => {
        const newTodos = this.state.todos.filter((todo) => todo.id !== id)
-       this.setState(
-            { todos: newTodos}
-        )
+       this.setState( { todos: newTodos} )
     }
 
     handleEdit = (todo) => {
-        console.log('todooooo', todo)
         this.setState({ 
-            editing:'false',
+            editing:'true',
             newItem:todo.item,
+            // initialTodos: {id:todo.id, status:todo.status, item:todo.item}
+            initialTodos: [{id:todo.id, status:todo.status, item:todo.item}]
+        })
+    }
+
+    handleUpdate = (e, id, updateTodo) => {
+        e.preventDefault();
+
+        this.state.todos.map((updateTodo) => {
+        
+        let newItem = updateTodo.id === id;
+        this.setState({
+            editing:true,
+            todos:newItem
+        })
+    })
+        // this.setState({ 
+        //     editing:true,  
+        //     todos: editTodo, 
+        // })
+
+   
+    }
+    handleInputEdit = (e) => {
+        e.preventDefault();
+        const {value} = e.target;
+        let updateItem = value
+        this.setState({ 
+            newItem : updateItem,
             initialTodos: [
                 {
-                    id:todo.id,
-                    status:todo.status,
-                    item: todo.item
+                    id:'',
+                    status:'',
+                    item:value
                 },
-            ] 
-        })
+            ]
+        })  
+        console.log('initialTodosinitialTodos', this.state.initialTodos)
     }
-
-    handleUpdate = (id, updateTodo) => {
-        const editTodo = this.state.todos.filter((updateTodo) => updateTodo.id === id)
-        this.setState({ 
-            editing:true,  
-            todos: [...this.state.todos, editTodo], 
-        })
-    }
-
   
     render = () => {
         return (
             <div>
                 <div className="input">
                     { this.state.editing ? (
-                        <form>
+                        <form onSubmit={this.handleUpdate}>
                             <div>
                                 <input 
                                     type="text" 
                                     value={this.state.newItem}
-                                    // onChange={this.handleEdit}
+                                    onChange={this.handleInputEdit}
                                 />
-                                <button 
-                                    type="submit"
-                                    onChange={this.handleUpdate}
-                                >
-                                    edit</button>
+                                <button type="submit">edit</button>
                                 <button 
                                     type="submit" 
                                     onClick = {(e) => this.setState({editing: false,  newItem:''})}>cancel</button>
