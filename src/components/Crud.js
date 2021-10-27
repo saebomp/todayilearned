@@ -17,13 +17,7 @@ class Crud extends Component {
       this.state = {
         newItem:'',
         updateItem:'',
-        initialTodos:[
-            {   
-                id:'',
-                status:'',
-                item:''
-            }
-        ],
+        initialTodos:{},
         todos: [
             {   
                 id:1,
@@ -44,6 +38,7 @@ class Crud extends Component {
       this.handleEdit = this.handleEdit.bind(this);
       this.handleUpdate = this.handleUpdate.bind(this);
       this.handleInputEdit = this.handleInputEdit.bind(this);
+      this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
     }
 
     handleChange = (e) => {
@@ -67,58 +62,44 @@ class Crud extends Component {
         })
         } else {} 
 
-        this.setState({ 
-            newItem:''
-        });
-        // console.log('state', this.state.todos)
+        this.setState({ newItem:'' });
     }
     handleDelete = (id) => {
        const newTodos = this.state.todos.filter((todo) => todo.id !== id)
        this.setState( { todos: newTodos} )
     }
+    /***********update****************/
 
+    handleUpdate = ((e) => {
+        e.preventDefault();
+        console.log('iddddddddddddd', e)
+        this.handleUpdateTodo(this.state.initialTodos.id, this.state.initialTodos);
+   
+    })
+    handleUpdateTodo = ((id, updateTodo) => {
+        const updatedItem = this.state.todos.map((todo) => {
+            return todo.id === id ? updateTodo : todo
+        })
+        
+        this.setState({
+            editing:false,
+            todos:updatedItem
+        })
+    })
     handleEdit = (todo) => {
         this.setState({ 
             editing:'true',
-            newItem:todo.item,
-            // initialTodos: {id:todo.id, status:todo.status, item:todo.item}
-            initialTodos: [{id:todo.id, status:todo.status, item:todo.item}]
+            initialTodos:{...todo}
         })
     }
 
-    handleUpdate = (e, id, updateTodo) => {
-        e.preventDefault();
-
-        this.state.todos.map((updateTodo) => {
-        
-        let newItem = updateTodo.id === id;
-        this.setState({
-            editing:true,
-            todos:newItem
-        })
-    })
-        // this.setState({ 
-        //     editing:true,  
-        //     todos: editTodo, 
-        // })
-
-   
-    }
     handleInputEdit = (e) => {
         e.preventDefault();
         const {value} = e.target;
-        let updateItem = value
         this.setState({ 
-            newItem : updateItem,
-            initialTodos: [
-                {
-                    id:'',
-                    status:'',
-                    item:value
-                },
-            ]
+            initialTodos: {...this.state.initialTodos, item:value}
         })  
-        console.log('initialTodosinitialTodos', this.state.initialTodos)
+        // console.log('initialTodosinitialTodosinitialTodos', this.state.initialTodos)
     }
   
     render = () => {
@@ -130,7 +111,7 @@ class Crud extends Component {
                             <div>
                                 <input 
                                     type="text" 
-                                    value={this.state.newItem}
+                                    value={this.state.initialTodos.item}
                                     onChange={this.handleInputEdit}
                                 />
                                 <button type="submit">edit</button>
@@ -182,3 +163,4 @@ export default Crud;
 // https://inventive.io/insights/create-a-simple-todo-list-with-react/
 // https://codepen.io/TiffanyCJanzen/pen/EpzVzR
 // https://icons8.com/
+// https://dev.to/joelynn/how-to-build-a-react-crud-todo-app-edit-todo-46g6
