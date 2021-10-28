@@ -3,6 +3,7 @@ const styles = {
     list: {
         listStyle:'none',
         display:'flex',
+        alignItem:'center'
     },
     btn: {
         paddingBottom:'3px',
@@ -10,6 +11,9 @@ const styles = {
         marginLeft:'10px',
         cursor:'pointer'
     },
+    chbox: {
+        marginRight:'5px',
+    }
 }
 class Crud extends Component {
     constructor(props) {
@@ -21,12 +25,12 @@ class Crud extends Component {
         todos: [
             {   
                 id:1,
-                status:'active',
+                active:false,
                 item:'Study CRUD'
             },
             {
                 id:2,
-                status:'inactive',
+                active:false,
                 item:'Shop Grocery'
             },
         ],
@@ -137,18 +141,22 @@ class Crud extends Component {
                 <div>
                     {this.state.todos.map((todo)  => (
                         <li style={styles.list}>
+                            <input 
+                                type="checkbox" 
+                                style={styles.chbox} 
+                            />
                             {todo.item}
                             <span>
                                 <img
-                                 onClick={() => this.handleDelete(todo.id)} 
-                                style={styles.btn} 
-                                src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
+                                    onClick={() => this.handleDelete(todo.id)} 
+                                    style={styles.btn} 
+                                    src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
                             </span>
                             <span>
                                 <img
-                                 onClick={() => this.handleEdit(todo)} 
-                                style={styles.btn} 
-                                src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
+                                    onClick={() => this.handleEdit(todo)} 
+                                    style={styles.btn} 
+                                    src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
                             </span>
                         </li>
                     ))}
