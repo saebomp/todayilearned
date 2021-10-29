@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 const styles = {
+    container: {
+        margin:'20px auto',
+        maxWidth:'300px'
+    },
     list: {
         listStyle:'none',
         display:'flex',
@@ -25,12 +29,12 @@ class Crud extends Component {
         todos: [
             {   
                 id:1,
-                status:"active",
+                checked: 'checked',
                 item:'Study CRUD'
             },
             {
                 id:2,
-                status:"active",
+                checked: 'checked',
                 item:'Shop Grocery'
             },
         ],
@@ -107,7 +111,7 @@ class Crud extends Component {
   
     render = () => {
         return (
-            <div>
+            <div style={styles.container}>
                 <div className="input">
                     { this.state.editing ? (
                         <form onSubmit={this.handleUpdate}>
@@ -140,21 +144,13 @@ class Crud extends Component {
                 <div>
                     {this.state.todos.map((todo)  => (
                         <li style={styles.list}>
-                            {this.state.todos.status === 'active' ?
-                            (
                             <input 
                                 type="checkbox" 
-                                style={styles.chbox} 
-                                checked
+                                style={styles.chbox}
+                                checked={todo.checked} 
+                                onChange={(e) => this.setState({checked: 'unchecked'})}
                             />
-                            )
-                            : (
-                            <input 
-                                type="checkbox" 
-                                style={styles.chbox} 
-                            />
-                            )
-                            }
+         
                             {todo.item}
                             <span>
                                 <img
