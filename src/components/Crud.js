@@ -25,12 +25,12 @@ class Crud extends Component {
         todos: [
             {   
                 id:1,
-                active:false,
+                status:"active",
                 item:'Study CRUD'
             },
             {
                 id:2,
-                active:false,
+                status:"active",
                 item:'Shop Grocery'
             },
         ],
@@ -103,7 +103,6 @@ class Crud extends Component {
         this.setState({ 
             initialTodos: {...this.state.initialTodos, item:value}
         })  
-        // console.log('initialTodosinitialTodosinitialTodos', this.state.initialTodos)
     }
   
     render = () => {
@@ -141,10 +140,21 @@ class Crud extends Component {
                 <div>
                     {this.state.todos.map((todo)  => (
                         <li style={styles.list}>
+                            {this.state.todos.status === 'active' ?
+                            (
+                            <input 
+                                type="checkbox" 
+                                style={styles.chbox} 
+                                checked
+                            />
+                            )
+                            : (
                             <input 
                                 type="checkbox" 
                                 style={styles.chbox} 
                             />
+                            )
+                            }
                             {todo.item}
                             <span>
                                 <img
