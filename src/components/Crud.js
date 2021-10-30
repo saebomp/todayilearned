@@ -29,12 +29,12 @@ class Crud extends Component {
         todos: [
             {   
                 id:1,
-                checked: 'checked',
+                checked: true,
                 item:'Study CRUD'
             },
             {
                 id:2,
-                checked: 'checked',
+                checked: true,
                 item:'Shop Grocery'
             },
         ],
@@ -47,6 +47,7 @@ class Crud extends Component {
       this.handleUpdate = this.handleUpdate.bind(this);
       this.handleInputEdit = this.handleInputEdit.bind(this);
       this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
+      this.handleStatus = this.handleStatus.bind(this);
     }
 
     handleChange = (e) => {
@@ -63,7 +64,7 @@ class Crud extends Component {
                 ...this.state.todos,
                 {
                     id:this.state.todos.length + 1,
-                    status:'active',
+                    checked:true,
                     item: this.state.newItem
                 },
             ]
@@ -108,6 +109,14 @@ class Crud extends Component {
             initialTodos: {...this.state.initialTodos, item:value}
         })  
     }
+
+    handleStatus = (id) => {
+        const updatedchecked = this.state.todos.map(list=>
+            list.id === id ? {...this.state.todos, checked: !list.checked} : list   
+        )
+        this.setState({todos: updatedchecked}) 
+        console.log(updatedchecked)
+    }
   
     render = () => {
         return (
@@ -148,7 +157,8 @@ class Crud extends Component {
                                 type="checkbox" 
                                 style={styles.chbox}
                                 checked={todo.checked} 
-                                onChange={(e) => this.setState({checked: 'unchecked'})}
+                                // onClick={() => this.handleStatus(todo.checked)}
+                                onClick={() => this.handleStatus(todo.id)}
                             />
          
                             {todo.item}
