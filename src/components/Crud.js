@@ -29,7 +29,7 @@ class Crud extends Component {
         todos: [
             {   
                 id:1,
-                checked: true,
+                checked: false,
                 item:'Study CRUD'
             },
             {
@@ -64,7 +64,7 @@ class Crud extends Component {
                 ...this.state.todos,
                 {
                     id:this.state.todos.length + 1,
-                    checked:true,
+                    checked:false,
                     item: this.state.newItem
                 },
             ]
@@ -105,17 +105,18 @@ class Crud extends Component {
     handleInputEdit = (e) => {
         e.preventDefault();
         const {value} = e.target;
+        console.log('vlauelkjsalkjsda', value)
         this.setState({ 
             initialTodos: {...this.state.initialTodos, item:value}
         })  
     }
 
-    handleStatus = (id) => {
-        const updatedchecked = this.state.todos.map(list=>
-            list.id === id ? {...this.state.todos, checked: !list.checked} : list   
-        )
-        this.setState({todos: updatedchecked}) 
-        console.log(updatedchecked)
+    handleStatus = (index) => {
+      console.log('indexindexindexindex', index)
+      const newTodos = [...this.state.todos];
+      newTodos[index].checked = !this.state.todos[index].checked;
+    //   console.log(newTodos[index].checked)
+      this.setState( { todos: newTodos} )
     }
   
     render = () => {
@@ -151,14 +152,14 @@ class Crud extends Component {
                     }
                 </div>
                 <div>
-                    {this.state.todos.map((todo)  => (
+                    {this.state.todos.map((todo, index)  => (
                         <li style={styles.list}>
                             <input 
                                 type="checkbox" 
                                 style={styles.chbox}
                                 checked={todo.checked} 
                                 // onClick={() => this.handleStatus(todo.checked)}
-                                onClick={() => this.handleStatus(todo.id)}
+                                onClick={() => this.handleStatus(index)}
                             />
          
                             {todo.item}
@@ -188,3 +189,4 @@ export default Crud;
 // https://codepen.io/TiffanyCJanzen/pen/EpzVzR
 // https://icons8.com/
 // https://dev.to/joelynn/how-to-build-a-react-crud-todo-app-edit-todo-46g6
+// https://towardsdatascience.com/build-a-simple-todo-app-using-react-a492adc9c8a4
