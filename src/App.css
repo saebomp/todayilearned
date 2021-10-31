@@ -469,3 +469,7 @@ body {
   line-height: 30px;
   letter-spacing: 1.2px;
 }
+
+.crud .inactive {
+  text-decoration: line-through;
+}
