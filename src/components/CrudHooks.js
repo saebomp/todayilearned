@@ -1,10 +1,27 @@
 import React, {useState} from 'react';
 
 const styles = {
-    margin: {
-      padding: '10px',
-      marginTop:'10px',
-    },
+  container: {
+    margin:'20px auto',
+    maxWidth:'300px'
+  },
+  list : {
+    listStyle:'none',
+    display:'flex',
+    alignItems:'center',
+    margin:'5px 0'
+  },
+  btn: {
+    width:'20px',
+    marginLeft:'10px',
+    cursor:'pointer'
+  },
+  chbox: {
+    marginRight:'5px',
+  },
+  inactive: {
+      textDecoration:'underline'
+  }
   }
 
   const CrudHooks = () => {
@@ -16,10 +33,29 @@ const styles = {
     const [todos, setTodos] = useState(todoData)
 
     return (
-        <div>
+        <div style={styles.container} className="crud">
+          <div className="input">
+            <input type="text" />
+            <button type="submit">Add</button>
+          </div>
+          <ul>
           {todos.map(list => (
-            <li>{list.item}</li>
+            <li style={styles.list}>
+              <input type="checkbox" style={styles.chbox} />
+              {list.item}
+              <span>
+                <img
+                    style={styles.btn} 
+                    src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
+              </span>
+              <span>
+                <img
+                    style={styles.btn} 
+                    src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
+              </span>
+            </li>
           ))}
+          </ul>
         </div>
     )
   }
