@@ -24,6 +24,8 @@ const styles = {
   }
   }
 
+  
+  
   const CrudHooks = () => {
     const todoData = [
       { id:1, checked: false, item:'Study CRUD'},
@@ -31,13 +33,43 @@ const styles = {
     ]
     const initialFormState = {id:null, checked:'', item:''}
     const [todos, setTodos] = useState(todoData)
+    const [items, setItems] = useState(initialFormState)
 
+    const handleChange = (e) => {
+      const {value} = e.target;
+      setItems({...items, item:value })
+      // console.log(items)
+    }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if(items.item == '') return
+      addTodos(items)
+      setItems(initialFormState)
+    }
+    const addTodos = (todo) => {
+      todo.id = todos.length + 1
+      todo.checked = false
+      setTodos([...todos, todo])
+      console.log(items)
+    }
     return (
         <div style={styles.container} className="crud">
           <div className="input">
-            <input type="text" />
-            <button type="submit">Add</button>
+            <form 
+              onSubmit={handleSubmit}
+            >
+              <input 
+                type="text"
+                value={items.item}
+                onChange={handleChange}
+              />
+              <button type="submit">Add</button>
+            </form>
           </div>
+
+
+
+          {/* Displaying Lists */}
           <ul>
           {todos.map(list => (
             <li style={styles.list}>
