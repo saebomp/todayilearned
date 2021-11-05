@@ -14,13 +14,17 @@ const styles = {
   btn: {
     width:'20px',
     marginLeft:'10px',
-    cursor:'pointer'
+    cursor:'pointer',
   },
   chbox: {
     marginRight:'5px',
   },
   inactive: {
       textDecoration:'underline'
+  },
+  btn2 :{
+    padding:'1px',
+    marginLeft:'1px'
   }
   }
 
@@ -34,6 +38,7 @@ const styles = {
     const initialFormState = {id:null, checked:'', item:''}
     const [todos, setTodos] = useState(todoData)
     const [items, setItems] = useState(initialFormState)
+    const [edit, setEdit] = useState(false)
 
     const handleChange = (e) => {
       const {value} = e.target;
@@ -56,8 +61,13 @@ const styles = {
     const handleDelete = (id) => {
       setTodos(todos.filter((todo)=> todo.id !== id))
     }
+
+    const handleEdit = () => {
+      setEdit(true)
+    }
     return (
         <div style={styles.container} className="crud">
+          {!edit ? (
           <div className="input">
             <form 
               onSubmit={handleSubmit}
@@ -67,17 +77,40 @@ const styles = {
                 value={items.item}
                 onChange={handleChange}
               />
-              <button type="submit">Add</button>
+              <button type="submit" style={styles.btn2}>Add</button>
             </form>
           </div>
+          ): (
 
+          <div className="input">
+            <form 
+              onSubmit={handleSubmit}
+            >
+              <input 
+                type="text"
+                value={items.item}
+                onChange={handleChange}
+              />
+              <button 
+                type="submit"
+                onClick={() =>setEdit(false)}
+                style={styles.btn2}
+              >Cancel</button>
+              <button type="submit" style={styles.btn2}>Update</button>
+            </form>
+          </div>
+          )}
 
 
           {/* Displaying Lists */}
           <ul>
           {todos.map(list => (
             <li style={styles.list}>
-              <input type="checkbox" style={styles.chbox} />
+              <input 
+                type="checkbox" 
+                style={styles.chbox} 
+                checked={list.checked}
+              />
               {list.item}
               <span>
                 <img
@@ -88,6 +121,7 @@ const styles = {
               <span>
                 <img
                     style={styles.btn} 
+                    onClick={handleEdit}
                     src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
               </span>
             </li>
