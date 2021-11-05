@@ -52,6 +52,10 @@ const styles = {
       setTodos([...todos, todo])
       console.log(items)
     }
+
+    const handleDelete = (id) => {
+      setTodos(todos.filter((todo)=> todo.id !== id))
+    }
     return (
         <div style={styles.container} className="crud">
           <div className="input">
@@ -78,6 +82,7 @@ const styles = {
               <span>
                 <img
                     style={styles.btn} 
+                    onClick={() => handleDelete(list.id)}
                     src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
               </span>
               <span>
