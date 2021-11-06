@@ -473,3 +473,37 @@ body {
 .crud .inactive {
   text-decoration: line-through;
 }
+
+.calculator-body {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.calculator-body .result {
+  height: 60px;
+  background-color: #bbb;
+  width: 100%;
+  text-align: right;
+}
+
+.calculator-body .result p {
+  font-size: 40px;
+  margin: 5px;
+
+}
+
+.calculator-body .calculator-body {
+  max-width: 400px;
+  margin: auto;
+}
+
+.calculator-body .button {
+  display: block;
+  background-color: #bbb;
+ 
+}
+.calculator-body .button button{
+  width: 25%;
+  height: 60px;
+  font-size: 30px;
+}
