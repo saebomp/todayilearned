@@ -28,6 +28,9 @@ import StickyNavigation from './components/StickyNavigation'
 import Form from './components/Form'
 import Crud from './components/Crud'
 import CrudHooks from './components/CrudHooks'
+import Calculator from './components/Calculator/Calculator'
+
+
 
 function App() {
   return (
@@ -61,6 +64,7 @@ function App() {
         <Route exact path="/form" component={Form} />
         <Route exact path="/crud" component={Crud} />
         <Route exact path="/crudhooks" component={CrudHooks} />
+        <Route exact path="/calculator" component={Calculator} />
       </div>
     </Router>
   );
