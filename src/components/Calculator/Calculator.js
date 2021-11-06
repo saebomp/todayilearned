@@ -10,6 +10,40 @@ class App extends Component {
             result: ""
         }
     }
+    
+    onClick = button => {
+        if(button === "="){
+            this.calculate()
+        }
+        else if(button === "C"){
+            this.reset()
+        }
+        else if(button === "CE"){
+            this.reset()
+        }
+        else {
+            this.setState({
+                result : this.state.result + button
+            })
+        }
+    }
+
+    calculate = () => {
+        try {
+            this.setState({result: (eval(this.state.result) || "" ) + ""})
+            // 스트링을 숫자로 바꿔줌
+        } catch (e) {
+            this.setState({result: "error"})
+        }
+    }
+
+    reset = () => {
+        this.setState({result:""})
+    }
+
+    backspace = () => {
+        this.setState({result: this.state.result.slice(0,-1)})
+    }
 
     render() {
         return (
