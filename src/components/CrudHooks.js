@@ -62,8 +62,11 @@ const styles = {
       setTodos(todos.filter((todo)=> todo.id !== id))
     }
 
-    const handleEdit = () => {
-      setEdit(true)
+    const handleEdit = (todo) => {
+      setEdit(true);
+      setItems({...todo})
+      console.log(items)
+
     }
     return (
         <div style={styles.container} className="crud">
@@ -121,7 +124,7 @@ const styles = {
               <span>
                 <img
                     style={styles.btn} 
-                    onClick={handleEdit}
+                    onClick={() => handleEdit(list)}
                     src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
               </span>
             </li>
