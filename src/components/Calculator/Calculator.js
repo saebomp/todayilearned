@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ResultComponent from './ResultComponent';
-// import KeyPadComponent from "./KeyPadComponent";
+import KeyPadComponent from "./KeyPadComponent";
 
 class App extends Component {
     constructor(){
@@ -17,7 +17,7 @@ class App extends Component {
                 <div className="calculator-body">
                     <h1>Simple Calculator</h1>
                     <ResultComponent result={this.state.result}/>
-                    {/* <KeyPadComponent onClick={this.onClick}/> */}
+                    <KeyPadComponent onClick={this.onClick}/>
                 </div>
             </div>
         );
@@ -25,3 +25,5 @@ class App extends Component {
 }
 
 export default App;
+
+// https://medium.com/@nitinpatel_20236/how-to-build-a-simple-calculator-application-with-react-js-bc10a4568bbd
