@@ -27,8 +27,6 @@ const styles = {
     marginLeft:'1px'
   }
   }
-
-  
   
   const CrudHooks = () => {
     const todoData = [
@@ -66,7 +64,11 @@ const styles = {
       setEdit(true);
       setItems({...todo})
       console.log(items)
+    }
 
+    const handleCancel = () => {
+      setEdit(false);
+      setItems({item:''})
     }
     return (
         <div style={styles.container} className="crud">
@@ -96,14 +98,17 @@ const styles = {
               />
               <button 
                 type="submit"
-                onClick={() =>setEdit(false)}
+                onClick={handleCancel}
                 style={styles.btn2}
               >Cancel</button>
-              <button type="submit" style={styles.btn2}>Update</button>
+              <button 
+                type="submit" 
+                style={styles.btn2}
+                onChange={handleEdit}
+              >Update</button>
             </form>
           </div>
           )}
-
 
           {/* Displaying Lists */}
           <ul>
