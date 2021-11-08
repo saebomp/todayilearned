@@ -62,14 +62,34 @@ const styles = {
 
     const handleEdit = (todo) => {
       setEdit(true);
-      setItems({...todo})
-      console.log(items)
+      setItems({id:todo.id, checked:todo.checked, item:todo.item})
     }
 
     const handleCancel = () => {
       setEdit(false);
       setItems({item:''})
     }
+
+    const handleInputEdit = (e) => {
+      const {value} = e.target;
+      setItems({
+        ...items, item:value
+      })
+    }
+
+    const handleUpdate = (e) => {
+      e.preventDefault();
+      handleUpdateTodo(items.id, items)
+    }
+    
+    const handleUpdateTodo = ((id, updatedTodo) => {
+      setEdit(false)
+      
+      setTodos(todos.map((todo)=> (
+        todo.id === id ? updatedTodo:todo
+      )))
+      console.log('dalksjdlkjalkjsd', todos)
+    })
     return (
         <div style={styles.container} className="crud">
           {!edit ? (
@@ -89,12 +109,12 @@ const styles = {
 
           <div className="input">
             <form 
-              onSubmit={handleSubmit}
+              onSubmit={handleUpdate}
             >
               <input 
                 type="text"
                 value={items.item}
-                onChange={handleChange}
+                onChange={handleInputEdit}
               />
               <button 
                 type="submit"
@@ -104,7 +124,6 @@ const styles = {
               <button 
                 type="submit" 
                 style={styles.btn2}
-                onChange={handleEdit}
               >Update</button>
             </form>
           </div>

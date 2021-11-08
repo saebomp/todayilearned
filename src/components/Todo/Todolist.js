@@ -33,13 +33,14 @@ const AddTodo = () => {
     setUsers(users.filter((user) => user.id !== id))
   }
 
-  const updateUser = (id, updateUser) => {
+  const updateUser = ((id, updateUser) => {
     setEditing(false)
     console.log('updateUser', updateUser)
     setUsers(users.map((user) =>(
       user.id === id ? updateUser:user
     )))
   }
+  )
 
   const editRow = (user) => {
     setEditing(true)

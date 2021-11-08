@@ -84,7 +84,7 @@ class Crud extends Component {
 
     handleUpdate = ((e) => {
         e.preventDefault();
-        console.log('iddddddddddddd', e)
+        console.log('id', e)
         this.handleUpdateTodo(this.state.initialTodos.id, this.state.initialTodos);
    
     })
@@ -108,7 +108,7 @@ class Crud extends Component {
     handleInputEdit = (e) => {
         e.preventDefault();
         const {value} = e.target;
-        console.log('vlauelkjsalkjsda', value)
+        console.log('value', value)
         this.setState({ 
             initialTodos: {...this.state.initialTodos, item:value}
         })  
