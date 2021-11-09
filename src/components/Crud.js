@@ -165,7 +165,6 @@ class Crud extends Component {
                                 type="checkbox" 
                                 style={styles.chbox}
                                 checked={todo.checked} 
-                                
                                 onClick={() => this.handleStatus(index)}
                             />
                             {todo.item}

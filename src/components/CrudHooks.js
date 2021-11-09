@@ -30,7 +30,7 @@ const styles = {
   
   const CrudHooks = () => {
     const todoData = [
-      { id:1, checked: false, item:'Study CRUD'},
+      { id:1, checked: true, item:'Study CRUD'},
       { id:2, checked: false, item:'Shop Grocery'},
     ]
     const initialFormState = {id:null, checked:'', item:''}
@@ -88,8 +88,15 @@ const styles = {
       setTodos(todos.map((todo)=> (
         todo.id === id ? updatedTodo:todo
       )))
-      console.log('dalksjdlkjalkjsd', todos)
     })
+
+    const handleStatus = (index) => {
+      const newTodos = [...todos]
+      console.log('newtodossssss',newTodos )
+      newTodos[index].checked = !todos[index].checked
+      setTodos(newTodos)
+    }
+
     return (
         <div style={styles.container} className="crud">
           {!edit ? (
@@ -131,12 +138,13 @@ const styles = {
 
           {/* Displaying Lists */}
           <ul>
-          {todos.map(list => (
+          {todos.map((list, index) => (
             <li style={styles.list}>
               <input 
                 type="checkbox" 
                 style={styles.chbox} 
                 checked={list.checked}
+                onClick={()=> handleStatus(index)}
               />
               {list.item}
               <span>
