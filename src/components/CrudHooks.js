@@ -30,7 +30,7 @@ const styles = {
   
   const CrudHooks = () => {
     const todoData = [
-      { id:1, checked: true, item:'Study CRUD'},
+      { id:1, checked: false, item:'Study CRUD'},
       { id:2, checked: false, item:'Shop Grocery'},
     ]
     const initialFormState = {id:null, checked:'', item:''}
@@ -139,7 +139,10 @@ const styles = {
           {/* Displaying Lists */}
           <ul>
           {todos.map((list, index) => (
-            <li style={styles.list}>
+            <li 
+            style={styles.list}
+            className={list.checked ?'inactive' :''}
+            >
               <input 
                 type="checkbox" 
                 style={styles.chbox} 
