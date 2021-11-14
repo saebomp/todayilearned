@@ -29,6 +29,7 @@ import Form from './components/Form'
 import Crud from './components/Crud'
 import CrudHooks from './components/CrudHooks'
 import Calculator from './components/Calculator/Calculator'
+import Converter from './components/Converter'
 
 
 
@@ -65,6 +66,7 @@ function App() {
         <Route exact path="/crud" component={Crud} />
         <Route exact path="/crudhooks" component={CrudHooks} />
         <Route exact path="/calculator" component={Calculator} />
+        <Route exact path="/converter" component={Converter} />
       </div>
     </Router>
   );
