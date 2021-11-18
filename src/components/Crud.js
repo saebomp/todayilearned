@@ -33,12 +33,20 @@ class Crud extends Component {
             {   
                 id:1,
                 checked: false,
-                item:'Study CRUD'
+                item:'Study CRUD',
+                category:'Work'
             },
             {
                 id:2,
                 checked: false,
-                item:'Shop Grocery'
+                item:'Shop Grocery',
+                category:'Health'
+            },
+            {
+                id:3,
+                checked: false,
+                item:'Shop Grocery',
+                category:'School'
             },
         ],
         editing:false
@@ -133,6 +141,11 @@ class Crud extends Component {
                                     value={this.state.initialTodos.item}
                                     onChange={this.handleInputEdit}
                                 />
+                                <select>
+                                    {this.state.todos.map((todo, index)  => (
+                                        <option>{todo.category}</option>
+                                    ))}
+                                </select>
                                 <button type="submit">edit</button>
                                 <button 
                                     type="submit" 
@@ -147,6 +160,11 @@ class Crud extends Component {
                                     value={this.state.newItem}
                                     onChange={this.handleChange}
                                 />
+                                <select>
+                                    {this.state.todos.map((todo, index)  => (
+                                        <option>{todo.category}</option>
+                                    ))}
+                                </select>
                                 <button type="submit">add</button>
                             </div>
                         </form>
@@ -154,34 +172,45 @@ class Crud extends Component {
                     }
                 </div>
                 <div>
+                    <table>
                     {this.state.todos.map((todo, index)  => (
-                        <li 
+                        <tr 
                         style={styles.list}
                         className={
                             todo.checked ? 'inactive' : ''
                         }
                         >
-                            <input 
-                                type="checkbox" 
-                                style={styles.chbox}
-                                checked={todo.checked} 
-                                onClick={() => this.handleStatus(index)}
-                            />
-                            {todo.item}
-                            <span>
-                                <img
-                                    onClick={() => this.handleDelete(todo.id)} 
-                                    style={styles.btn} 
-                                    src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
-                            </span>
-                            <span>
-                                <img
-                                    onClick={() => this.handleEdit(todo)} 
-                                    style={styles.btn} 
-                                    src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
-                            </span>
-                        </li>
+                            <td>
+                                <input 
+                                    type="checkbox" 
+                                    style={styles.chbox}
+                                    checked={todo.checked} 
+                                    onClick={() => this.handleStatus(index)}
+                                />
+                            </td>
+                            <td>
+                                {todo.item}
+                            </td>
+                            <td>
+                                {todo.category}
+                            </td>
+                            <td>
+                                <span>
+                                    <img
+                                        onClick={() => this.handleDelete(todo.id)} 
+                                        style={styles.btn} 
+                                        src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
+                                </span>
+                                <span>
+                                    <img
+                                        onClick={() => this.handleEdit(todo)} 
+                                        style={styles.btn} 
+                                        src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
+                                </span>
+                            </td>
+                        </tr>
                     ))}
+                    </table>
                 </div>
             </div>
         );
