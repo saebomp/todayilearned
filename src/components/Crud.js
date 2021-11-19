@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 const styles = {
     container: {
         margin:'20px auto',
-        maxWidth:'300px'
+        maxWidth:'50%'
     },
     list: {
         listStyle:'none',
@@ -20,6 +20,18 @@ const styles = {
     },
     inactive: {
         textDecoration:'underline'
+    },
+    td1 : {
+        width:'40%',
+        textAlign:'left'
+    },
+    td2 : {
+        width:'50%',
+        textAlign:'center',
+    },
+    td3 : {
+        width:'15%',
+        textAlign:'center',
     }
 }
 class Crud extends Component {
@@ -27,6 +39,7 @@ class Crud extends Component {
       super(props);
       this.state = {
         newItem:'',
+        newType:'',
         updateItem:'',
         initialTodos:{},
         todos: [
@@ -76,6 +89,7 @@ class Crud extends Component {
                 {
                     id:this.state.todos.length + 1,
                     checked:false,
+                    categoty:this.state.newType,
                     item: this.state.newItem
                 },
             ]
@@ -128,7 +142,15 @@ class Crud extends Component {
     //   console.log(newTodos[index].checked)
       this.setState( { todos: newTodos} )
     }
-  
+
+    getType = (e) => {
+        e.preventDefault();
+        console.log(e.target.value);
+        this.setState({ 
+            newType: e.target.value
+        });
+    }
+
     render = () => {
         return (
             <div style={styles.container} className="crud">
@@ -143,7 +165,7 @@ class Crud extends Component {
                                 />
                                 <select>
                                     {this.state.todos.map((todo, index)  => (
-                                        <option>{todo.category}</option>
+                                        <option value={todo.category}>{todo.category}</option>
                                     ))}
                                 </select>
                                 <button type="submit">edit</button>
@@ -160,9 +182,9 @@ class Crud extends Component {
                                     value={this.state.newItem}
                                     onChange={this.handleChange}
                                 />
-                                <select>
+                                <select onChange={this.getType}>
                                     {this.state.todos.map((todo, index)  => (
-                                        <option>{todo.category}</option>
+                                        <option value={todo.category}>{todo.category}</option>
                                     ))}
                                 </select>
                                 <button type="submit">add</button>
@@ -188,13 +210,13 @@ class Crud extends Component {
                                     onClick={() => this.handleStatus(index)}
                                 />
                             </td>
-                            <td>
+                            <td style={styles.td1}>
                                 {todo.item}
                             </td>
-                            <td>
+                            <td style={styles.td3}>
                                 {todo.category}
                             </td>
-                            <td>
+                            <td style={styles.td3}>
                                 <span>
                                     <img
                                         onClick={() => this.handleDelete(todo.id)} 
