@@ -72,6 +72,7 @@ class Crud extends Component {
       this.handleInputEdit = this.handleInputEdit.bind(this);
       this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
       this.handleStatus = this.handleStatus.bind(this);
+      this.getType = this.getType.bind(this);
     }
 
     handleChange = (e) => {
@@ -80,23 +81,30 @@ class Crud extends Component {
         });
         console.log('handlechange', e.target.value)
     }
+
+    getType = (e) => {
+        this.setState({ 
+            newType: e.target.value
+        });
+        console.log(e.target.value);
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
-        if(!this.state.newItem =='') { 
+        if(!this.state.newItem =='' && !this.state.newType == '') { 
         this.setState({
             todos: [
                 ...this.state.todos,
                 {
                     id:this.state.todos.length + 1,
                     checked:false,
-                    categoty:this.state.newType,
+                    category:this.state.newType,
                     item: this.state.newItem
                 },
             ]
         })
         } else {} 
-
-        this.setState({ newItem:'' });
+        this.setState({ newItem:''});
     }
     handleDelete = (id) => {
        const newTodos = this.state.todos.filter((todo) => todo.id !== id)
@@ -143,13 +151,7 @@ class Crud extends Component {
       this.setState( { todos: newTodos} )
     }
 
-    getType = (e) => {
-        e.preventDefault();
-        console.log(e.target.value);
-        this.setState({ 
-            newType: e.target.value
-        });
-    }
+    
 
     render = () => {
         return (
@@ -171,7 +173,8 @@ class Crud extends Component {
                                 <button type="submit">edit</button>
                                 <button 
                                     type="submit" 
-                                    onClick = {(e) => this.setState({editing: false,  newItem:''})}>cancel</button>
+                                    onClick = {(e) => this.setState({editing: false,  newItem:''})}>cancel
+                                </button>
                             </div>
                         </form>
                         ) : (
@@ -182,7 +185,8 @@ class Crud extends Component {
                                     value={this.state.newItem}
                                     onChange={this.handleChange}
                                 />
-                                <select onChange={this.getType}>
+                                <select onClick={this.getType}>
+                                    <option>Select a Category</option>
                                     {this.state.todos.map((todo, index)  => (
                                         <option value={todo.category}>{todo.category}</option>
                                     ))}
@@ -198,9 +202,7 @@ class Crud extends Component {
                     {this.state.todos.map((todo, index)  => (
                         <tr 
                         style={styles.list}
-                        className={
-                            todo.checked ? 'inactive' : ''
-                        }
+                        className={ todo.checked ? 'inactive' : '' }
                         >
                             <td>
                                 <input 
