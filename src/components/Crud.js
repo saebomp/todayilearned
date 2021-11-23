@@ -114,7 +114,7 @@ class Crud extends Component {
 
     handleUpdate = ((e) => {
         e.preventDefault();
-        console.log('id', e)
+        console.log('id', this.state.initialTodos.id)
         this.handleUpdateTodo(this.state.initialTodos.id, this.state.initialTodos);
    
     })
@@ -122,7 +122,6 @@ class Crud extends Component {
         const updatedItem = this.state.todos.map((todo) => {
             return todo.id === id ? updateTodo : todo
         })
-        
         this.setState({
             editing:false,
             todos:updatedItem
@@ -143,12 +142,13 @@ class Crud extends Component {
         })  
     }
     
-    // handleTypeEdit = (e) => {
-    //     e.preventDefault();
-    //     const {value} = e.target;
-    //     console.log('handleTypeEdit', value)
-    //     this.setState({  initialTodos: {...this.state.initialTodos, category:value}})
-    // }
+    handleTypeEdit = (e) => {
+        e.preventDefault();
+        const {value} = e.target;
+        console.log('handleTypeEdit', value)
+        if(value > 0){
+        this.setState({  initialTodos: {...this.state.initialTodos, category:value}})}
+    }
 
     handleStatus = (index) => {
       const newTodos = [...this.state.todos];
@@ -171,10 +171,10 @@ class Crud extends Component {
                                     onChange={this.handleInputEdit}
                                 />
                                 <select onClick={this.handleTypeEdit}>
-                                    <option>Select a Category</option>
-                                    {this.state.todos.map((todo, index)  => (
-                                        <option value={todo.category}>{todo.category}</option>
-                                    ))}
+                                    <option value="0">Select a Category</option>
+                                    <option value="1">Work</option>
+                                    <option value="2">Health</option>
+                                    <option value="3">Study</option>
                                 </select>
                                 <button type="submit">edit</button>
                                 <button 
@@ -192,10 +192,10 @@ class Crud extends Component {
                                     onChange={this.handleChange}
                                 />
                                 <select onClick={this.getType}>
-                                    <option>Select a Category</option>
-                                    {this.state.todos.map((todo, index)  => (
-                                        <option value={todo.category}>{todo.category}</option>
-                                    ))}
+                                    <option value="0">Select a Category</option>
+                                    <option value="1">Work</option>
+                                    <option value="2">Health</option>
+                                    <option value="3">Study</option>
                                 </select>
                                 <button type="submit">add</button>
                             </div>
