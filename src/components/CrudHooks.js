@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const styles = {
   container: {
     margin:'20px auto',
-    maxWidth:'300px'
+    maxWidth:'50%'
   },
   list : {
     listStyle:'none',
@@ -25,18 +25,33 @@ const styles = {
   btn2 :{
     padding:'1px',
     marginLeft:'1px'
+  },
+  td1 : {
+    width:'40%',
+    textAlign:'left',
+    padding:'4px'
+  },
+  td2 : {
+      textAlign:'center',
+  },
+  td3 : {
+      width:'15%',
+      textAlign:'center',
+      padding:'4px'
   }
-  }
+}
   
   const CrudHooks = () => {
     const todoData = [
-      { id:1, checked: false, item:'Study CRUD'},
-      { id:2, checked: false, item:'Shop Grocery'},
+      { id:1, checked: false, item:'Study CRUD', category:'Work'},
+      { id:2, checked: false, item:'Shop Grocery', category:'Health'},
+      { id:3, checked: true, item:'Shop Grocery', category:'School'},
     ]
-    const initialFormState = {id:null, checked:'', item:''}
+    const initialFormState = {id:null, checked:'', item:'', category:''}
     const [todos, setTodos] = useState(todoData)
     const [items, setItems] = useState(initialFormState)
     const [edit, setEdit] = useState(false)
+    // const [cate, setCate] = useState('')
 
     const handleChange = (e) => {
       const {value} = e.target;
@@ -49,11 +64,16 @@ const styles = {
       addTodos(items)
       setItems(initialFormState)
     }
+
     const addTodos = (todo) => {
       todo.id = todos.length + 1
       todo.checked = false
       setTodos([...todos, todo])
       console.log(items)
+    }
+
+    const getType = (e) => {
+      setItems({...items, category:e.target.value})
     }
 
     const handleDelete = (id) => {
@@ -109,6 +129,12 @@ const styles = {
                 value={items.item}
                 onChange={handleChange}
               />
+              <select onChange={getType}>
+                <option>Select a Category</option>
+                {todos.map((todo) => (
+                  <option>{todo.category}</option>
+                ))}
+              </select>
               <button type="submit" style={styles.btn2}>Add</button>
             </form>
           </div>
@@ -123,6 +149,12 @@ const styles = {
                 value={items.item}
                 onChange={handleInputEdit}
               />
+              <select onChange={getType}>
+                <option>Select a Category</option>
+                {todos.map((todo) => (
+                  <option>{todo.category}</option>
+                ))}
+              </select>
               <button 
                 type="submit"
                 onClick={handleCancel}
@@ -137,34 +169,41 @@ const styles = {
           )}
 
           {/* Displaying Lists */}
-          <ul>
-          {todos.map((list, index) => (
-            <li 
-            style={styles.list}
-            className={list.checked ?'inactive' :''}
-            >
-              <input 
-                type="checkbox" 
-                style={styles.chbox} 
-                checked={list.checked}
-                onClick={()=> handleStatus(index)}
-              />
-              {list.item}
-              <span>
-                <img
-                    style={styles.btn} 
-                    onClick={() => handleDelete(list.id)}
-                    src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
-              </span>
-              <span>
-                <img
-                    style={styles.btn} 
-                    onClick={() => handleEdit(list)}
-                    src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
-              </span>
-            </li>
+          <table>
+            {todos.map((list, index) => (
+            <tr style={styles.list}
+              className={list.checked ?'inactive' :''}>
+              <td>
+                <input 
+                  type="checkbox" 
+                  style={styles.chbox} 
+                  checked={list.checked}
+                  onClick={()=> handleStatus(index)}
+                />
+              </td>
+              <td style={styles.td1}>
+                {list.item}
+              </td>
+              <td style={styles.td3}>
+                  {list.category}
+              </td>
+              <td style={styles.td2}>
+                <span>
+                  <img
+                      style={styles.btn} 
+                      onClick={() => handleDelete(list.id)}
+                      src="https://img.icons8.com/material-outlined/24/000000/close-window.png"/>
+                </span>
+                <span>
+                  <img
+                      style={styles.btn} 
+                      onClick={() => handleEdit(list)}
+                      src="https://img.icons8.com/material/24/000000/edit--v1.png"/>
+                </span>
+              </td>
+            </tr>
           ))}
-          </ul>
+          </table>
         </div>
     )
   }

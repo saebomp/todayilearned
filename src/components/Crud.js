@@ -138,11 +138,17 @@ class Crud extends Component {
     handleInputEdit = (e) => {
         e.preventDefault();
         const {value} = e.target;
-        console.log('value', value)
         this.setState({ 
             initialTodos: {...this.state.initialTodos, item:value}
         })  
     }
+    
+    // handleTypeEdit = (e) => {
+    //     e.preventDefault();
+    //     const {value} = e.target;
+    //     console.log('handleTypeEdit', value)
+    //     this.setState({  initialTodos: {...this.state.initialTodos, category:value}})
+    // }
 
     handleStatus = (index) => {
       const newTodos = [...this.state.todos];
@@ -150,7 +156,6 @@ class Crud extends Component {
     //   console.log(newTodos[index].checked)
       this.setState( { todos: newTodos} )
     }
-
     
 
     render = () => {
@@ -165,7 +170,8 @@ class Crud extends Component {
                                     value={this.state.initialTodos.item}
                                     onChange={this.handleInputEdit}
                                 />
-                                <select>
+                                <select onClick={this.handleTypeEdit}>
+                                    <option>Select a Category</option>
                                     {this.state.todos.map((todo, index)  => (
                                         <option value={todo.category}>{todo.category}</option>
                                     ))}
