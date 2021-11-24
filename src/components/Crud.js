@@ -172,9 +172,9 @@ class Crud extends Component {
                                 />
                                 <select onClick={this.handleTypeEdit}>
                                     <option value="0">Select a Category</option>
-                                    <option value="1">Work</option>
-                                    <option value="2">Health</option>
-                                    <option value="3">Study</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Study">Study</option>
                                 </select>
                                 <button type="submit">edit</button>
                                 <button 
@@ -193,9 +193,9 @@ class Crud extends Component {
                                 />
                                 <select onClick={this.getType}>
                                     <option value="0">Select a Category</option>
-                                    <option value="1">Work</option>
-                                    <option value="2">Health</option>
-                                    <option value="3">Study</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Study">Study</option>
                                 </select>
                                 <button type="submit">add</button>
                             </div>

@@ -51,7 +51,6 @@ const styles = {
     const [todos, setTodos] = useState(todoData)
     const [items, setItems] = useState(initialFormState)
     const [edit, setEdit] = useState(false)
-    // const [cate, setCate] = useState('')
 
     const handleChange = (e) => {
       const {value} = e.target;
@@ -60,7 +59,8 @@ const styles = {
     }
     const handleSubmit = (e) => {
       e.preventDefault();
-      if(items.item == '') return
+      if(items.item == '' && items.category !== '0') return
+      console.log('adddtdoooo', items)
       addTodos(items)
       setItems(initialFormState)
     }
@@ -73,7 +73,8 @@ const styles = {
     }
 
     const getType = (e) => {
-      setItems({...items, category:e.target.value})
+      const {value} = e.target;
+      setItems({...items, category:value}) 
     }
 
     const handleDelete = (id) => {
@@ -110,6 +111,10 @@ const styles = {
       )))
     })
 
+    const handleTypeEdit = () => {
+      console.log()
+    }
+
     const handleStatus = (index) => {
       const newTodos = [...todos]
       console.log('newtodossssss',newTodos )
@@ -130,10 +135,10 @@ const styles = {
                 onChange={handleChange}
               />
               <select onChange={getType}>
-                <option>Select a Category</option>
-                {todos.map((todo) => (
-                  <option>{todo.category}</option>
-                ))}
+                <option value="0">Select a Category</option>
+                <option value="Work">Work</option>
+                <option value="Health">Health</option>
+                <option value="Study">Study</option>
               </select>
               <button type="submit" style={styles.btn2}>Add</button>
             </form>
@@ -149,11 +154,11 @@ const styles = {
                 value={items.item}
                 onChange={handleInputEdit}
               />
-              <select onChange={getType}>
-                <option>Select a Category</option>
-                {todos.map((todo) => (
-                  <option>{todo.category}</option>
-                ))}
+              <select onChange={handleTypeEdit}>
+                <option value="0">Select a Category</option>
+                <option value="Work">Work</option>
+                <option value="Health">Health</option>
+                <option value="Study">Study</option>
               </select>
               <button 
                 type="submit"
