@@ -167,4 +167,10 @@ export let DATA = [
     title : 'converter',
     component : 'Converter'
   },
+  { 
+    id: 27,
+    path : '/menu',
+    title : 'menu',
+    component : 'Menu'
+  },
 ]

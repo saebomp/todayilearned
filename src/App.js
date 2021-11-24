@@ -30,6 +30,7 @@ import Crud from './components/Crud'
 import CrudHooks from './components/CrudHooks'
 import Calculator from './components/Calculator/Calculator'
 import Converter from './components/Converter'
+import Menu from './components/Menu'
 
 
 
@@ -67,6 +68,7 @@ function App() {
         <Route exact path="/crudhooks" component={CrudHooks} />
         <Route exact path="/calculator" component={Calculator} />
         <Route exact path="/converter" component={Converter} />
+        <Route exact path="/ment" component={Menu} />
       </div>
     </Router>
   );
