@@ -517,3 +517,12 @@ body {
   height: 60px;
   font-size: 30px;
 }
+.sideMenu .header{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around
+}
+.sideMenu .float {
+  display: flex;
+  flex-direction: row;
+}

@@ -68,7 +68,7 @@ function App() {
         <Route exact path="/crudhooks" component={CrudHooks} />
         <Route exact path="/calculator" component={Calculator} />
         <Route exact path="/converter" component={Converter} />
-        <Route exact path="/ment" component={Menu} />
+        <Route exact path="/menu" component={Menu} />
       </div>
     </Router>
   );
