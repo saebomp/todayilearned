@@ -517,12 +517,40 @@ body {
   height: 60px;
   font-size: 30px;
 }
-.sideMenu .header{
+.sideMenu {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content:space-around
+  justify-content: space-around;
+  height:100%;
+  box-sizing: border-box;
 }
-.sideMenu .float {
+.sideMenu .contents {
+  width:80%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-top:2%;
+}
+.sideMenu .contents div {
+  margin:0% 2% 2% 0;
+  width:49%;
+  border-radius:3px;
+  box-shadow: 4px 4px 15px #dedede;
+  min-height: 350px;
+  padding:15px;
+  border:1px solid #dedede;
+  box-sizing: border-box;
+}
+.sideMenu .contents div:nth-of-type(2n){
+  margin:0 0 2% 0
+}
+.sideMenu .menu {
+  border-radius:3px;
+  box-shadow: 4px 4px 15px #dedede;
+  border:1px solid #dedede;
+  width:18%;
+  height:100vh;
+  margin:2% 0;
 }
