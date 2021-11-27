@@ -531,7 +531,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top:2%;
+  margin-top:20px;
 }
 .sideMenu .contents div {
   margin:0% 2% 2% 0;
@@ -546,7 +546,7 @@ body {
 .sideMenu .contents div:nth-of-type(2n){
   margin:0 0 2% 0
 }
-.sideMenu .menu {
+.sideMenu .slide_wrap {
   border-radius:3px;
   box-shadow: 4px 4px 15px #dedede;
   border:1px solid #dedede;
@@ -556,9 +556,24 @@ body {
   top:84px;
   right:-182px;
   transition: all .5s;
-  background:white
+  background:white;
+  display:flex;
+  flex-direction: row;
 }
-.sideMenu .menu.active {
+.sideMenu .menu {
+  width:180px;
+  height:100%;
+}
+.sideMenu .menu1 {
+  transform:translate3d(0px, 0px, 0px)
+}
+.sideMenu .menu2 {
+  transform:translate3d(180px, 0px, 0px)
+}
+.sideMenu .menu3 {
+  transform:translate3d(360px, 0px, 0px)
+}
+.sideMenu .slide_wrap.active {
   right:0
 }
 .sideMenu .slide {
@@ -568,4 +583,5 @@ body {
   position:absolute;
   top:0px;
   left:-50px;
+  cursor: pointer;
 }
