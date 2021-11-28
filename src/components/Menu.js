@@ -24,18 +24,16 @@ const Menu = () => {
       </div>
       <div className={style ? "slide_wrap" : "slide_wrap active"}>
         <div className="slide" onClick={handleSlide}>Click</div>
-        {/* 여기에 버튼 넣어서 슬라이드 만듦(translate3d위치 바뀌는걸로) */}
-        <ul className="menu menu1">
+        <ul className="menu">
           <li>Menu1</li>
+            <select>
+              <option>menu1</option>
+              <option>menu1</option>
+              <option>menu1</option>
+              <option>menu1</option>
+              <option>menu1</option>
+            </select>
           <li>Menu2</li>
-        </ul>
-        <ul className="menu menu2">
-          <li>Menu3</li>
-          <li>Menu4</li>
-        </ul>
-        <ul className="menu menu3">
-          <li>Menu5</li>
-          <li>Menu6</li>
         </ul>
       </div>
     </div>

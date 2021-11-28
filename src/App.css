@@ -550,29 +550,30 @@ body {
   border-radius:3px;
   box-shadow: 4px 4px 15px #dedede;
   border:1px solid #dedede;
-  width:180px;
+  width:250px;
   height:100vh;
   position:absolute;
   top:84px;
-  right:-182px;
+  right:-252px;
   transition: all .5s;
   background:white;
   display:flex;
   flex-direction: row;
 }
 .sideMenu .menu {
-  width:180px;
+  width:250px;
   height:100%;
+  padding:50px 0px;
 }
-.sideMenu .menu1 {
-  transform:translate3d(0px, 0px, 0px)
+.sideMenu .menu li {
+  padding:10px;
 }
-.sideMenu .menu2 {
-  transform:translate3d(180px, 0px, 0px)
+.sideMenu .menu li:after {
+  content:url("https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-arrow-arrows-those-icons-lineal-color-those-icons-9.png");
+  transform: rotate(90deg);
+
 }
-.sideMenu .menu3 {
-  transform:translate3d(360px, 0px, 0px)
-}
+
 .sideMenu .slide_wrap.active {
   right:0
 }
