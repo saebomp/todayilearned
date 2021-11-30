@@ -14,6 +14,10 @@ const Menu = () => {
     console.log('ddddd')
     setStyle(!style)
   }
+  const handleMenu = () => {
+    console.log('ddd')
+  }
+
   return (
     <div className="sideMenu">
       <div className={style ? "contents" : "contents active"}>
@@ -25,15 +29,15 @@ const Menu = () => {
       <div className={style ? "slide_wrap" : "slide_wrap active"}>
         <div className="slide" onClick={handleSlide}>Click</div>
         <ul className="menu">
-          <li>Menu1</li>
-            <select>
-              <option>menu1</option>
-              <option>menu1</option>
-              <option>menu1</option>
-              <option>menu1</option>
-              <option>menu1</option>
-            </select>
-          <li>Menu2</li>
+          <li>Menu1<span><img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-arrow-arrows-those-icons-lineal-color-those-icons-9.png" onClick={handleMenu} /></span></li>
+            <ul>
+              <li>menu1</li>
+              <li>menu1</li>
+              <li>menu1</li>
+              <li>menu1</li>
+              <li>menu1</li>
+            </ul>
+          <li>Menu2<span><img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-arrow-arrows-those-icons-lineal-color-those-icons-9.png" onClick={handleMenu} /></span></li>
         </ul>
       </div>
     </div>
