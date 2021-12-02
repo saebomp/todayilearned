@@ -593,3 +593,9 @@ body {
   left:-50px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 780px) {
+  .sideMenu .slide_wrap {
+    display: none;
+  }
+}
