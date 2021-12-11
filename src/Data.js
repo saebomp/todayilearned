@@ -173,4 +173,10 @@ export let DATA = [
     title : 'menu',
     component : 'Menu'
   },
+  { 
+    id: 28,
+    path : '/crudprops',
+    title : 'crudprops',
+    component : 'Crudprops'
+  },
 ]
