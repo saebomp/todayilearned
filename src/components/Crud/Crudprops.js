@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TodoTable from './TodoTable'
 const styles = {
     table: {
         margin:'20px auto',
@@ -10,24 +11,23 @@ class Crudprops extends Component {
     constructor(props) {
       super(props);
       this.state = {
+          todo : [
+              {
+                  id:1,
+                  active:false,
+                  date:'2010-01-11',
+                  item:'go to anywhere'
+            }
+          ]
       }
     }
 
 
 render = () => {
     return (
-        <div>
-            <table style={styles.table}>
-                <tr>
-                    <td><input type="checkbox" /></td>
-                    <td>todolist</td>
-                    <td>x</td>
-                    <td>cancel</td>
-                </tr>
-            </table>
-        </div>
+        <TodoTable />
     );
 }
- }
+}
       
 export default Crudprops;
