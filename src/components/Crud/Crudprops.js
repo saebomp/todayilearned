@@ -31,6 +31,9 @@ class Crudprops extends Component {
       }
     }
 
+ handleDelete = (id) => {
+     this.setState(todo.filter((id) => id.id !== id)
+ }
 
 render = () => {
     return (
@@ -44,6 +47,7 @@ render = () => {
         }
         <TodoTable 
             todo={this.state.todo}
+            handleDelete={this.handleDelete}
         />
     </div>
     );

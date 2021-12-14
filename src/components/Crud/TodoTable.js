@@ -4,7 +4,7 @@ const styles = {
 
 }
 
-const TodoTable = ({todo}) => {
+const TodoTable = ({todo, handleDelete}) => {
   
     return (
         <table className='table'>
@@ -13,7 +13,7 @@ const TodoTable = ({todo}) => {
                 <td><input type="checkbox" checked={list.active} /></td>
                 <td>{list.item}</td>
                 <td className='tdl'>
-                    <button className="btn">x</button>
+                    <button className="btn" onClick={() => handleDelete(list.id)}>x</button>
                     <button className="btn">cancel</button>
                 </td>
             </tr>
