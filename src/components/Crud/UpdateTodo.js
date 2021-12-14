@@ -4,12 +4,13 @@ const styles = {
 
 }
 
-const AddTodo = ({todo}) => {
+const UpdateTodo = ({todo}) => {
     return (
         <div className='addtodo'>
             <input type="text" />
-            <button>Submit</button>
+            <button>Cancel</button>
+            <button>Update</button>
         </div>
     )
 }
-export default AddTodo
+export default UpdateTodo

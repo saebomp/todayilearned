@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
 
 const styles = {
-    table: {
-        margin:'20px auto',
-        width:'50%'
-    },
+
 }
 
 const TodoTable = ({todo}) => {
   
     return (
-        <table style={styles.table}>
+        <table className='table'>
             {todo.map(list => (
             <tr>
                 <td><input type="checkbox" checked={list.active} /></td>
                 <td>{list.item}</td>
-                <td>x</td>
-                <td>cancel</td>
+                <td className='tdl'>
+                    <button className="btn">x</button>
+                    <button className="btn">cancel</button>
+                </td>
             </tr>
             ))}
         </table>

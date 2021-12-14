@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import TodoTable from './TodoTable'
 import AddTodo from './AddTodo'
+import UpdateTodo from './UpdateTodo'
 const styles = {
-    table: {
-        margin:'20px auto',
-        width:'50%'
-    },
+
 }
 
 class Crudprops extends Component {
@@ -28,21 +26,28 @@ class Crudprops extends Component {
                 active:true,
                 item:'listen to radiooo'
             },
-          ]
+          ],
+          editing : false
       }
     }
 
 
 render = () => {
     return (
-    <div style={styles.table}>
+    <div style={styles.table} className="todo">
+        {!this.state.editing ? (
         <AddTodo />
+        ) :
+        (
+        <UpdateTodo />
+        )
+        }
         <TodoTable 
-        todo={this.state.todo}
+            todo={this.state.todo}
         />
     </div>
     );
-}
+    }
 }
       
 export default Crudprops;
