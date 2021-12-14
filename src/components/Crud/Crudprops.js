@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TodoTable from './TodoTable'
+import AddTodo from './AddTodo'
 const styles = {
     table: {
         margin:'20px auto',
@@ -13,11 +14,20 @@ class Crudprops extends Component {
       this.state = {
           todo : [
               {
-                  id:1,
-                  active:false,
-                  date:'2010-01-11',
-                  item:'go to anywhere'
-            }
+                id:1,
+                active:true,
+                item:'go anywhere'
+            },
+            {
+                id:2,
+                active:false,
+                item:'assignment'
+            },
+            {
+                id:3,
+                active:true,
+                item:'listen to radiooo'
+            },
           ]
       }
     }
@@ -25,7 +35,12 @@ class Crudprops extends Component {
 
 render = () => {
     return (
-        <TodoTable />
+    <div style={styles.table}>
+        <AddTodo />
+        <TodoTable 
+        todo={this.state.todo}
+        />
+    </div>
     );
 }
 }

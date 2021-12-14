@@ -7,16 +7,18 @@ const styles = {
     },
 }
 
-const TodoTable = () => {
+const TodoTable = ({todo}) => {
   
     return (
         <table style={styles.table}>
+            {todo.map(list => (
             <tr>
-                <td><input type="checkbox" /></td>
-                <td>todolist</td>
+                <td><input type="checkbox" checked={list.active} /></td>
+                <td>{list.item}</td>
                 <td>x</td>
                 <td>cancel</td>
             </tr>
+            ))}
         </table>
     )
 }
