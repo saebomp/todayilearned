@@ -27,19 +27,27 @@ class Crudprops extends Component {
                 item:'listen to radiooo'
             },
           ],
-          editing : false
+          editing : false,
+          newItem :''
       }
     }
 
  handleDelete = (id) => {
-     this.setState(todo.filter((id) => id.id !== id)
+    const newTodo = this.state.todo.filter((todo) => todo.id !== id)
+    this.setState({todo: newTodo})
  }
-
+handleAdd = (item) => {
+    console.log(item)
+}
 render = () => {
     return (
     <div style={styles.table} className="todo">
         {!this.state.editing ? (
-        <AddTodo />
+        <AddTodo 
+            todo={this.state.todo}
+            newItem={this.state.newItem}
+            handleAdd={this.handleAdd}
+        />
         ) :
         (
         <UpdateTodo />
@@ -55,3 +63,4 @@ render = () => {
 }
       
 export default Crudprops;
+
