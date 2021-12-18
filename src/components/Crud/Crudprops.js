@@ -32,13 +32,17 @@ class Crudprops extends Component {
       }
     }
 
- handleDelete = (id) => {
+handleDelete = (id) => {
     const newTodo = this.state.todo.filter((todo) => todo.id !== id)
     this.setState({todo: newTodo})
  }
 handleAdd = (item) => {
     console.log(item)
 }
+handleInput = (e) => {
+    console.log(e)
+}
+
 render = () => {
     return (
     <div style={styles.table} className="todo">
@@ -47,6 +51,7 @@ render = () => {
             todo={this.state.todo}
             newItem={this.state.newItem}
             handleAdd={this.handleAdd}
+            handleInput={this.handleInput}
         />
         ) :
         (

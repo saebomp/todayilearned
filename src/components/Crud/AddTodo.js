@@ -4,19 +4,16 @@ const styles = {
 
 }
 
-const AddTodo = ({todo, handleAdd, newItem}) => {
-    const handleChange = (event) => {
-        this.setState ({newItem: event.target.value})
-        console.log(newItem)
+const AddTodo = ({todo, handleInput, handleSubmit}) => {
+    const handleChange = (e) => {
+        const todoItem = e.target.value
+        handleInput(todoItem)
     }
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        
-    }
+ 
     return (
         <div className='addtodo'>
             <input type="text" onChange={handleChange} />
-            <button onSubmit={handleSubmit}>Submit</button>
+            <button onSubmit={() => handleSubmit()}>Submit</button>
         </div>
     )
 }
