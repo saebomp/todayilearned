@@ -30,17 +30,33 @@ class Crudprops extends Component {
           editing : false,
           newItem :''
       }
+      this.handleInput = this.handleInput.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 handleDelete = (id) => {
     const newTodo = this.state.todo.filter((todo) => todo.id !== id)
     this.setState({todo: newTodo})
+
  }
-handleAdd = (item) => {
-    console.log(item)
-}
-handleInput = (e) => {
+handleSubmit = (e) => {
     console.log(e)
+    if(!this.state.newItem =='') {
+    this.setState({
+        todo: [
+            ...this.state.todo,
+            {
+                id:this.state.todo.length + 1,
+                active:false,
+                item: this.state.newItem
+            },
+        ]
+    })
+    }
+}
+handleInput = (item) => {
+    this.setState({newItem:item})
+    console.log('newItem', this.state.newItem)
 }
 
 render = () => {
@@ -48,9 +64,7 @@ render = () => {
     <div style={styles.table} className="todo">
         {!this.state.editing ? (
         <AddTodo 
-            todo={this.state.todo}
-            newItem={this.state.newItem}
-            handleAdd={this.handleAdd}
+            handleSubmit={this.handleSubmit}
             handleInput={this.handleInput}
         />
         ) :

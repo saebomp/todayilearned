@@ -165,6 +165,7 @@ class Crud extends Component {
                     { this.state.editing ? (
                         <form onSubmit={this.handleUpdate}>
                             <div>
+                                {/* editing */}
                                 <input 
                                     type="text" 
                                     value={this.state.initialTodos.item}
@@ -184,6 +185,7 @@ class Crud extends Component {
                             </div>
                         </form>
                         ) : (
+                        // input  
                         <form onSubmit={this.handleSubmit}>
                             <div>
                                 <input 

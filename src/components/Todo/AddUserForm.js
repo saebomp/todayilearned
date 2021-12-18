@@ -25,7 +25,7 @@ const AddUserForm = (props) => {
     console.log(event);
     const {name, value} = event.target
     setUser({...user,[name]:value})
-    //name (name, username)과 value (input 에 입력한값)을 둘가 가져와서 setUser 해줌
+    //name (name, username)과 value (input 에 입력한값)을 둘다 가져와서 setUser 해줌
   }
   const handleSubmit = (event) => {
     console.log('handelsubmit', event);
