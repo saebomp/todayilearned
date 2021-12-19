@@ -4,11 +4,11 @@ const styles = {
 
 }
 
-const UpdateTodo = ({todo}) => {
+const UpdateTodo = ({todo, handleCancle}) => {
     return (
         <div className='addtodo'>
             <input type="text" />
-            <button>Cancel</button>
+            <button onClick={() => handleCancle()}>Cancel</button>
             <button>Update</button>
         </div>
     )

@@ -10,16 +10,11 @@ const AddTodo = ({handleInput, handleSubmit}) => {
         const todoItem = e.target.value
         handleInput(todoItem)
     }
-    const handleInputSubmit = (e) => {
-        e.preventDefault();
-        console.log('eeeeeeee', e)
-        handleSubmit(e)
-    }
  
     return (
         <div className='addtodo'>
             <input type="text" onChange={handleChange} />
-            <button onSubmit={handleInputSubmit}>Submit</button>
+            <button onClick={() => handleSubmit()}>Submit</button>
         </div>
     )
 }

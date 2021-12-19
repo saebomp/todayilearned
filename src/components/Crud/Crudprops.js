@@ -58,6 +58,12 @@ handleInput = (item) => {
     this.setState({newItem:item})
     console.log('newItem', this.state.newItem)
 }
+handleEdit = () => {
+    this.setState({editing:true})
+}
+handleCancle = () => {
+    this.setState({editing:false})
+}
 
 render = () => {
     return (
@@ -69,12 +75,15 @@ render = () => {
         />
         ) :
         (
-        <UpdateTodo />
+        <UpdateTodo 
+            handleEditing={this.handleCancle}
+        />
         )
         }
         <TodoTable 
             todo={this.state.todo}
             handleDelete={this.handleDelete}
+            handleEdit={this.handleEdit}
         />
     </div>
     );
