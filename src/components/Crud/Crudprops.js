@@ -28,7 +28,8 @@ class Crudprops extends Component {
             },
           ],
           editing : false,
-          newItem :''
+          newItem :'',
+          initialTodo: {},
       }
       this.handleInput = this.handleInput.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -64,6 +65,11 @@ handleEdit = () => {
 handleCancle = () => {
     this.setState({editing:false})
 }
+handleInitialTodo = (todo) => {
+    console.log(todo)
+    this.setState({editing:true, initialTodo : {...todo} })
+    console.log(this.state.initialTodo)
+}
 
 render = () => {
     return (
@@ -77,13 +83,14 @@ render = () => {
         (
         <UpdateTodo 
             handleCancle={this.handleCancle}
+            initialTodo={this.state.initialTodo}
         />
         )
         }
         <TodoTable 
             todo={this.state.todo}
             handleDelete={this.handleDelete}
-            handleEdit={this.handleEdit}
+            handleInitialTodo={this.handleInitialTodo}
         />
     </div>
     );
