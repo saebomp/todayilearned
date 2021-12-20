@@ -15,7 +15,7 @@ const AddTodo = () => {
   const usersData = [
     {id:1, name:'Anne', username:'anneisgenius'},
     {id:2, name:'Bob', username:'bobisbob'},
-    {id:3, name:'Cindy', username:'cindya'},
+    {id:3, name:'Cindy', username:'cindyo'},
   ]
   const initialFormState = {id:null, name:'', username:''}
   const [users, setUsers] = useState(usersData)

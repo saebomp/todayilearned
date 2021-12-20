@@ -76,7 +76,7 @@ render = () => {
         ) :
         (
         <UpdateTodo 
-            handleEditing={this.handleCancle}
+            handleCancle={this.handleCancle}
         />
         )
         }
