@@ -4,7 +4,7 @@ const styles = {
 
 }
 
-const AddTodo = ({handleInput, handleSubmit}) => {
+const AddTodo = ({handleInput, handleSubmit, newItem}) => {
 
     const handleChange = (e) => {
         const todoItem = e.target.value
@@ -13,7 +13,7 @@ const AddTodo = ({handleInput, handleSubmit}) => {
  
     return (
         <div className='addtodo'>
-            <input type="text" onChange={handleChange} />
+            <input type="text" value={newItem} onChange={handleChange} />
             <button onClick={() => handleSubmit()}>Submit</button>
         </div>
     )

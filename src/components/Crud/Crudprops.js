@@ -51,7 +51,8 @@ handleSubmit = (e) => {
                 active:false,
                 item: this.state.newItem
             },
-        ]
+        ],
+        newItem:''
     })
     }
 }
@@ -70,6 +71,10 @@ handleInitialTodo = (todo) => {
     this.setState({editing:true, initialTodo : {...todo} })
     console.log(this.state.initialTodo)
 }
+handleTypeEdit = (evalue) => {
+    console.log(evalue)
+    this.setState({initialTodo:{...this.state.initialTodo, item:evalue}})
+}
 
 render = () => {
     return (
@@ -78,12 +83,14 @@ render = () => {
         <AddTodo 
             handleSubmit={this.handleSubmit}
             handleInput={this.handleInput}
+            newItem={this.state.newItem}
         />
         ) :
         (
         <UpdateTodo 
             handleCancle={this.handleCancle}
             initialTodo={this.state.initialTodo}
+            handleTypeEdit={this.handleTypeEdit}
         />
         )
         }

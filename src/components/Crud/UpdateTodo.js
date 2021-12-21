@@ -4,9 +4,11 @@ const styles = {
 
 }
 
-const UpdateTodo = ({todo, handleCancle, initialTodo}) => {
+const UpdateTodo = ({todo, handleCancle, initialTodo, handleTypeEdit}) => {
     const handleInputChange = (e) => {
-        console.log(e)
+        e.preventDefault()
+        console.log('e.target', e.target.value)
+        handleTypeEdit(e.target.value)
     }
     return (
         <div className='addtodo'>
