@@ -62,6 +62,7 @@ class Crud extends Component {
                 category:'School'
             },
         ],
+        type: ['Select a Category', 'Work', 'Health', 'School'],
         editing:false
       }
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -146,8 +147,7 @@ class Crud extends Component {
         e.preventDefault();
         const {value} = e.target;
         console.log('handleTypeEdit', value)
-        if(value > 0){
-        this.setState({  initialTodos: {...this.state.initialTodos, category:value}})}
+        this.setState({  initialTodos: {...this.state.initialTodos, category:value}})
     }
 
     handleStatus = (index) => {
@@ -172,10 +172,9 @@ class Crud extends Component {
                                     onChange={this.handleInputEdit}
                                 />
                                 <select onClick={this.handleTypeEdit}>
-                                    <option value="0">Select a Category</option>
-                                    <option value="Work">Work</option>
-                                    <option value="Health">Health</option>
-                                    <option value="Study">Study</option>
+                                    {this.state.type.map( el => (
+                                    <option value={el}>{el}</option>
+                                    ))}
                                 </select>
                                 <button type="submit">edit</button>
                                 <button 
@@ -194,10 +193,9 @@ class Crud extends Component {
                                     onChange={this.handleChange}
                                 />
                                 <select onClick={this.getType}>
-                                    <option value="0">Select a Category</option>
-                                    <option value="Work">Work</option>
-                                    <option value="Health">Health</option>
-                                    <option value="Study">Study</option>
+                                    {this.state.type.map( el => (
+                                    <option value="{el}">{el}</option>
+                                    ))}
                                 </select>
                                 <button type="submit">add</button>
                             </div>
