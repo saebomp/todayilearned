@@ -4,16 +4,16 @@ const styles = {
 
 }
 
-const TodoTable = ({todo, handleDelete, handleInitialTodo}) => {
+const TodoTable = ({todo, handleDelete, handleInitialTodo, handleToggle}) => {
     const handleEdit = (todo) => {
         handleInitialTodo(todo)
     }
 
     return (
         <table className='table'>
-            {todo.map(list => (
+            {todo.map((list,index) => (
             <tr>
-                <td><input type="checkbox" checked={list.active} /></td>
+                <td><input type="checkbox" checked={list.active} onClick={() => handleToggle(index)} /></td>
                 <td>{list.item}</td>
                 <td className='tdl'>
                     <button className="btn" onClick={() => handleDelete(list.id)}>x</button>
