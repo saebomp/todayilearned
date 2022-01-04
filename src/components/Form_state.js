@@ -40,7 +40,7 @@ handleSubmit = (e) => {
 }
 handleChange = (e) => {
     const {name, value} = e.target
-    this.setState({newUser: {[name]:value}})
+    this.setState({newUser: {...this.state.newUser, [name]:value}})
     console.log(this.state.newUser)
 
 }

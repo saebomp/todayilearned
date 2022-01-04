@@ -22,13 +22,12 @@ const AddUserForm = (props) => {
   const [user, setUser] = useState(initialFormState)
 
   const handleInputChange = (event) => {
-    console.log(event);
     const {name, value} = event.target
-    setUser({...user,[name]:value})
+    setUser({...user, [name]:value})
+    console.log(user);
     //name (name, username)과 value (input 에 입력한값)을 둘다 가져와서 setUser 해줌
   }
   const handleSubmit = (event) => {
-    console.log('handelsubmit', event);
     event.preventDefault();
     if(!user.name || !user.username) return
       props.addUser(user)
