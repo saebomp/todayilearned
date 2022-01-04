@@ -179,4 +179,10 @@ export let DATA = [
     title : 'crudprops',
     component : 'Crudprops'
   },
+  { 
+    id: 29,
+    path : '/form_state',
+    title : 'form_state',
+    component : 'Form_state'
+  },
 ]

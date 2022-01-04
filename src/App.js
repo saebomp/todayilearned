@@ -32,6 +32,7 @@ import Calculator from './components/Calculator/Calculator'
 import Converter from './components/Converter'
 import Menu from './components/Menu'
 import Crudprops from './components/Crud/Crudprops'
+import Form_state from './components/Form_state'
 
 
 
@@ -71,6 +72,7 @@ function App() {
         <Route exact path="/converter" component={Converter} />
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/Crudprops" component={Crudprops} />
+        <Route exact path="/form_state" component={Form_state} />
       </div>
     </Router>
   );
