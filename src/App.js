@@ -2,13 +2,7 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Nav from './Nav'
 import Title from './Title'
-import UseInput from './components/UseInput'
-import UseTab from './components/UseTab'
-import UseEffect from './components/UseEffect'
 import LocalStorage from './components/LocalStorage'
-import UseTitle from './components/UseTitle'
-import UseClick from './components/UseClick'
-import UseFadein from './components/UseFadein'
 import Count from './components/Count'
 import ProgressSteps from './components/ProgressSteps'
 import Async from './components/Async'
@@ -29,10 +23,10 @@ import Form from './components/Form'
 import Crud from './components/Crud'
 import CrudHooks from './components/CrudHooks'
 import Calculator from './components/Calculator/Calculator'
-import Converter from './components/Converter'
 import Menu from './components/Menu'
 import Crudprops from './components/Crud/Crudprops'
 import Form_state from './components/Form_state'
+import Crud2 from './components/Crud2/Crud2'
 
 
 
@@ -42,13 +36,7 @@ function App() {
       <div className="App">
         <Title />
         <Route path={process.env.PUBLIC_URL + '/'} exact component={Home} />
-        <Route exact path="/useInput" component={UseInput} />
-        <Route exact path="/useTab" component={UseTab} />
-        <Route exact path="/useEffect" component={UseEffect} />
         <Route exact path="/localStorage" component={LocalStorage} />
-        <Route exact path="/useTitle" component={UseTitle} />
-        <Route exact path="/useClick" component={UseClick} />
-        <Route exact path="/useFadein" component={UseFadein} />
         <Route exact path="/count" component={Count} />
         <Route exact path="/progressSteps" component={ProgressSteps} />
         <Route exact path="/async" component={Async} />
@@ -69,10 +57,10 @@ function App() {
         <Route exact path="/crud" component={Crud} />
         <Route exact path="/crudhooks" component={CrudHooks} />
         <Route exact path="/calculator" component={Calculator} />
-        <Route exact path="/converter" component={Converter} />
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/Crudprops" component={Crudprops} />
         <Route exact path="/form_state" component={Form_state} />
+        <Route exact path="/crud2" component={Crud2} />
       </div>
     </Router>
   );

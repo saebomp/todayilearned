@@ -46,22 +46,24 @@ handleChange = (e) => {
 }
 render = () => {
     return (
-        <div style={styles.container}>
-            <form onSubmit={this.handleSubmit}>
+        <div>
+            <div style={styles.container}>
+                <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <label style={styles.label} for="firstname">firstname</label>
+                        <input id="firstname" style={styles.input} type="text" name="firstname" onChange={this.handleChange} />
+                    </div>
+                    <div>
+                        <label style={styles.label} for="lastname">lastname</label>
+                        <input id="lastname" style={styles.input} type="text" name="lastname" onChange={this.handleChange} />
+                    </div>
+                    <button style={styles.btn}>Submit</button>
+                </form>
                 <div>
-                    <label style={styles.label} for="firstname">firstname</label>
-                    <input id="firstname" style={styles.input} type="text" name="firstname" onChange={this.handleChange} />
+                    {/* {this.state.users.map((item) => { */}
+                    <span>{this.state.users.firstname} {this.state.users.lastname}</span>
+                {/* })} */}
                 </div>
-                <div>
-                    <label style={styles.label} for="lastname">lastname</label>
-                    <input id="lastname" style={styles.input} type="text" name="lastname" onChange={this.handleChange} />
-                </div>
-                <button style={styles.btn}>Submit</button>
-            </form>
-            <div>
-                {/* {this.state.users.map((item) => { */}
-                <span>{this.state.users.firstname} {this.state.users.lastname}</span>
-            {/* })} */}
             </div>
         </div>
         );

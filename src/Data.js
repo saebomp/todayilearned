@@ -1,46 +1,10 @@
 export let DATA = [
-  // { 
-  //   id: 1,
-  //   path : '/useInput',
-  //   title : 'useInput',
-  //   component : 'UseInput'
-  // },
-  { 
-    id: 2,
-    path : '/useTab',
-    title : 'useTab',
-    component : 'UseTab'
-  },
-  { 
-    id: 3,
-    path : '/useEffect',
-    title : 'useEffect',
-    component : 'UseEffect'
-  },
   { 
     id: 4,
     path : '/localStorage',
     title : 'local Storage',
     component : 'LocalStorage'
   },
-  // { 
-  //   id: 5,
-  //   path : '/useTitle',
-  //   title : 'useTitle',
-  //   component : 'UseTitle'
-  // },
-  // { 
-  //   id: 6,
-  //   path : '/useClick',
-  //   title : 'useClick',
-  //   component : 'UseClick'
-  // },
-  // { 
-  //   id: 7,
-  //   path : '/useFadein',
-  //   title : 'useFadein',
-  //   component : 'UseFadein'
-  // },
   { 
     id: 8,
     path : '/count',
@@ -162,12 +126,6 @@ export let DATA = [
     component : 'Calculator'
   },
   { 
-    id: 26,
-    path : '/converter',
-    title : 'converter',
-    component : 'Converter'
-  },
-  { 
     id: 27,
     path : '/menu',
     title : 'menu',
@@ -184,5 +142,11 @@ export let DATA = [
     path : '/form_state',
     title : 'form_state',
     component : 'Form_state'
+  },
+  { 
+    id: 29,
+    path : '/crud2',
+    title : 'crud2',
+    component : 'Crud2'
   },
 ]
