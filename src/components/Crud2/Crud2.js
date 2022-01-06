@@ -30,6 +30,11 @@ handleSubmit = (e) => {
             }
         ]
     })
+    this.setState({newUser:{}})
+}
+handleDelete = (index) => {
+    console.log(index)
+    // this.users.filter((index) => {})
 }
 render = () => {
     return (
@@ -37,17 +42,17 @@ render = () => {
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label for="">Firstname</label>
-                    <input type="text" name="firstname" onChange={this.handleChange} /> 
+                    <input type="text" name="firstname" value={this.state.newUser.firstname} onChange={this.handleChange} /> 
                     <label for="">Lastname</label>
-                    <input type="text" name="lastname" onChange={this.handleChange} />
+                    <input type="text" name="lastname"  value={this.state.newUser.lastname} onChange={this.handleChange} />
                     <button>Submit</button>
                 </div>
             </form>
             <table style={{marginTop:'50px'}}>
-                {this.state.users.map((user) => (
+                {this.state.users.map((user, index) => (
                     <tr>
                         <td>{user.firstname} {user.lastname}</td>
-                        <td><button>x</button></td>
+                        <td><button onClick={() => this.handleDelete(index)}>x</button></td>
                     </tr>
                 ))}
             </table>
