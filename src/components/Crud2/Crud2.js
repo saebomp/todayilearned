@@ -11,7 +11,9 @@ class Crud2 extends Component {
                 lastname:'Yes'
             }
         ],
-        newUser : {}
+        newUser : {},
+        editing:false,
+        initialUser : {}
       }
     }
 handleChange = (e) => {
@@ -20,6 +22,7 @@ handleChange = (e) => {
 }
 handleSubmit = (e) => {
     e.preventDefault();
+    if(!this.state.newUser.firstname == '' && !this.state.newUser.lastname == ''){
     this.setState({
         users : [
             ...this.state.users,
@@ -30,29 +33,64 @@ handleSubmit = (e) => {
             }
         ]
     })
+    } else {}
     this.setState({newUser:{}})
 }
-handleDelete = (index) => {
-    console.log(index)
-    // this.users.filter((index) => {})
+handleDelete = (id) => {
+    console.log(id)
+    const newUsers = this.state.users.filter((user) => user.id !== id)
+    this.setState({users: newUsers})
+}
+handleEdit = (user) => {
+    this.setState({editing:true, newUser: {}, initialUser: {...user}})
+    console.log(this.state.initialUser)
+}
+handleInputChange = (e) => {
+    const {name, value} = e.target
+    this.setState({
+        initialUser: {...this.state.initialUser, [name]:value}
+    })
+}
+handleUpdate = (e) => {
+    e.preventDefault()
+    const updatedItem = this.state.users.map((user) => {
+        return user.id === this.state.initialUser.id ? this.state.initialUser : this.state.users
+    })
+    this.setState({
+        editing:false,
+        users:updatedItem
+    })
 }
 render = () => {
     return (
         <div>
             <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label for="">Firstname</label>
-                    <input type="text" name="firstname" value={this.state.newUser.firstname} onChange={this.handleChange} /> 
-                    <label for="">Lastname</label>
-                    <input type="text" name="lastname"  value={this.state.newUser.lastname} onChange={this.handleChange} />
-                    <button>Submit</button>
-                </div>
+                {!this.state.editing ? (
+                    <div>
+                        <label for="">Firstname</label>
+                        <input type="text" name="firstname" value={this.state.newUser.firstname} onChange={this.handleChange} /> 
+                        <label for="">Lastname</label>
+                        <input type="text" name="lastname"  value={this.state.newUser.lastname} onChange={this.handleChange} />
+                        <button>Submit</button>
+                    </div>
+                ) : (
+                    <div>
+                        <label for="">Firstname</label>
+                        <input type="text" name="firstname" value={this.state.initialUser.firstname} onChange={this.handleInputChange} /> 
+                        <label for="">Lastname</label>
+                        <input type="text" name="lastname"  value={this.state.initialUser.lastname} onChange={this.handleInputChange} />
+                        <button onClick={()=> {this.setState({editing:false})}}>Cancel</button>
+                        <button onClick={this.handleUpdate}>Update</button>
+                    </div>
+                )
+                }
             </form>
             <table style={{marginTop:'50px'}}>
                 {this.state.users.map((user, index) => (
                     <tr>
                         <td>{user.firstname} {user.lastname}</td>
-                        <td><button onClick={() => this.handleDelete(index)}>x</button></td>
+                        <td><button onClick={() => this.handleDelete(user.id)}>x</button></td>
+                        <td><button onClick={() => this.handleEdit(user)}>Edit</button></td>
                     </tr>
                 ))}
             </table>
