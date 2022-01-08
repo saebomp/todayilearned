@@ -149,4 +149,10 @@ export let DATA = [
     title : 'crud2',
     component : 'Crud2'
   },
+  { 
+    id: 29,
+    path : '/crudhooks2',
+    title : 'crudhooks2',
+    component : 'Crudhooks2'
+  },
 ]
