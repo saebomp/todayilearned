@@ -10,6 +10,7 @@ const initialForm = {id:null, firstname:'', lastname:'', checked:false}
 
 const [users, setUsers] = useState(usersData)
 const [initial, setInitial] = useState(initialForm)
+const [editing, setEditing] = useState(false)
 
 const handleChange = (e) => {
     const {name, value} = e.target
@@ -28,8 +29,17 @@ const handleCheck = (index) => {
     newUsers[index].checked = !users[index].checked
     setUsers(newUsers)
 }
+const handleInputChange = (e) => {
+    const {name, value} = e.target;
+    setInitial({...initial, name:value})
+}
+
+const handleUpdate = (e) => {
+    e.preventDefault();
+}
 return (
 <div>
+    {!editing ? (
     <div>
         <label for="">Firstname</label>
         <input type="text" onChange={handleChange} name="firstname" /> 
@@ -37,13 +47,24 @@ return (
         <input type="text" onChange={handleChange} name="lastname" />
         <button onClick={handleSubmit}>Submit</button>
     </div>
+    ) : (
+    <div>
+        <label for="">Firstname</label>
+        <input type="text" onChange={handleInputChange} name="firstname" value={initial.firstname} /> 
+        <label for="">Lastname</label>
+        <input type="text" onChange={handleInputChange} name="lastname" value={initial.lastname} />
+        <button onClick={()=> setEditing(false)}>Cancle</button>
+        <button onClick={handleUpdate}>Update</button>
+    </div>
+    )
+    }
     <div style={{marginTop:'50px'}}>
         {users.map((user, index) => (
             <div>
                 <span><input type="checkbox" checked={user.checked} onClick={() => handleCheck(index)} /></span>
                 {user.firstname} {user.lastname} 
                 <span><button onClick={() => handleDelete(user.id)}>x</button></span>
-                <span><button>edit</button></span>
+                <span><button onClick={() => setEditing(true)}>edit</button></span>
             </div>
         ))}
     </div>
