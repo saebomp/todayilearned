@@ -18,8 +18,10 @@ const handleChange = (e) => {
 }
 const handleSubmit = (e) => {
     e.preventDefault();
+    if(initial.firstname == '' || initial.lastname == '') return
     initial.id = initial.length + 1
     setUsers([...users, initial])
+    setInitial(initialForm)
 }
 const handleDelete = (id) => {
     setUsers(users.filter(user => user.id !== id))
@@ -29,46 +31,61 @@ const handleCheck = (index) => {
     newUsers[index].checked = !users[index].checked
     setUsers(newUsers)
 }
+const handleEdit = (user) => {
+    setEditing(true)
+    setInitial({id:user.id, firstname:user.firstname, lastname:user.lastname, checked:user.checked})
+}
 const handleInputChange = (e) => {
     const {name, value} = e.target;
-    setInitial({...initial, name:value})
+    setInitial({...initial, [name]:value})
 }
 
 const handleUpdate = (e) => {
     e.preventDefault();
+    setEditing(false)
+    setUsers(users.map((user) => (
+        user.id === initial.id ? initial:user
+    )))
+}
+
+const handleCancle = () => {
+    setEditing(false)
+
 }
 return (
-<div>
-    {!editing ? (
     <div>
-        <label for="">Firstname</label>
-        <input type="text" onChange={handleChange} name="firstname" /> 
-        <label for="">Lastname</label>
-        <input type="text" onChange={handleChange} name="lastname" />
-        <button onClick={handleSubmit}>Submit</button>
+        {!editing ? (
+        <div>
+            <label for="">Firstname</label>
+            <input type="text" onChange={handleChange} value={initial.firstname} name="firstname" /> 
+            <label for="">Lastname</label>
+            <input type="text" onChange={handleChange} value={initial.lastname} name="lastname" />
+            <button onClick={handleSubmit}>Submit</button>
+        </div>
+        ) : (
+        <div>
+            <form>
+                <label for="">Firstname</label>
+                <input type="text" onChange={handleInputChange} name="firstname" value={initial.firstname} /> 
+                <label for="">Lastname</label>
+                <input type="text" onChange={handleInputChange} name="lastname" value={initial.lastname} />
+                <button onClick={handleCancle}>Cancle</button>
+                <button onClick={handleUpdate}>Update</button>
+            </form>
+        </div>
+        )
+        }
+        <div style={{marginTop:'50px'}}>
+            {users.map((user, index) => (
+                <div>
+                    <span><input type="checkbox" checked={user.checked} onClick={() => handleCheck(index)} /></span>
+                    {user.firstname} {user.lastname} 
+                    <span><button onClick={() => handleDelete(user.id)}>x</button></span>
+                    <span><button onClick={() => handleEdit(user)}>edit</button></span>
+                </div>
+            ))}
+        </div>
     </div>
-    ) : (
-    <div>
-        <label for="">Firstname</label>
-        <input type="text" onChange={handleInputChange} name="firstname" value={initial.firstname} /> 
-        <label for="">Lastname</label>
-        <input type="text" onChange={handleInputChange} name="lastname" value={initial.lastname} />
-        <button onClick={()=> setEditing(false)}>Cancle</button>
-        <button onClick={handleUpdate}>Update</button>
-    </div>
-    )
-    }
-    <div style={{marginTop:'50px'}}>
-        {users.map((user, index) => (
-            <div>
-                <span><input type="checkbox" checked={user.checked} onClick={() => handleCheck(index)} /></span>
-                {user.firstname} {user.lastname} 
-                <span><button onClick={() => handleDelete(user.id)}>x</button></span>
-                <span><button onClick={() => setEditing(true)}>edit</button></span>
-            </div>
-        ))}
-    </div>
-</div>
     )
 }
 
