@@ -18,14 +18,17 @@ class Crudprops2 extends Component {
     }
     handleInput = (name, value) => {
         this.setState({initial: {...this.state.initial, id:this.state.users.length + 1, [name]: value}})
-        console.log(this.state.initial)
     }
     handleSubmit = (e) => {
-        if(!this.state.initial == ''){
+        if(!this.state.initial.firstname == '' && !this.state.initial.lastname == ''){
         this.setState({
             users : [...this.state.users,this.state.initial],
-            initial:{...this.state.initial, firstname:'', lastname:''}
+            initial:{...this.state.initial, id:'', firstname:'', lastname:''}
         })}
+    }
+    handleDelete = (id) => {
+        const newUser = this.state.users.filter((user) => user.id ==! id)
+        this.setState({users:newUser})
     }
 
     render = () => {
@@ -39,6 +42,7 @@ class Crudprops2 extends Component {
 
                 <Table
                     users={this.state.users}
+                    handleDelete={this.handleDelete}
                 />
             </div>
         )
