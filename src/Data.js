@@ -150,9 +150,15 @@ export let DATA = [
     component : 'Crud2'
   },
   { 
-    id: 29,
+    id: 30,
     path : '/crudhooks2',
     title : 'crudhooks2',
     component : 'Crudhooks2'
+  },
+  { 
+    id: 31,
+    path : '/crudprops2',
+    title : 'crudprops2',
+    component : 'Crudprops2'
   },
 ]

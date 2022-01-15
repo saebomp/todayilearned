@@ -38,6 +38,7 @@ const handleEdit = (user) => {
 const handleInputChange = (e) => {
     const {name, value} = e.target;
     setInitial({...initial, [name]:value})
+    console.log('ddasd', initial)
 }
 
 const handleUpdate = (e) => {
@@ -50,8 +51,8 @@ const handleUpdate = (e) => {
 
 const handleCancle = () => {
     setEditing(false)
-
 }
+
 return (
     <div>
         {!editing ? (
