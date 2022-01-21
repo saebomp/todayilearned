@@ -1,4 +1,6 @@
+import { findAllByDisplayValue } from '@testing-library/react';
 import React, {Component} from 'react';
+import TodoTable from '../Crud/TodoTable';
 import Form from './Form'
 import Table from './Table'
 
@@ -13,7 +15,8 @@ class Crudprops2 extends Component {
               lastname:'Yes'
           }
         ],
-        initial : {}
+        initial : {},
+        editing:false
         }
     }
     handleInput = (name, value) => {
@@ -27,10 +30,29 @@ class Crudprops2 extends Component {
         })}
     }
     handleDelete = (id) => {
-        const newUser = this.state.users.filter((user) => user.id ==! id)
+        const newUser = this.state.users.filter((user) => user.id !== id)
         this.setState({users:newUser})
     }
-
+    handleEdit = (user) => {
+        this.setState({editing:true, initial: {...user}})
+    }
+    handleCancle = () => {
+        this.setState({editing:false, initial:{...this.state.initial, id:'',firstname:'', lastname:''}})
+        console.log(this.state.initial)
+    }
+    handleTypeEdit = (name, value) => {
+        this.setState({initial:{...this.state.initial, [name]:value}})
+    }
+    handleUpdate = () => {
+        const EditedUser = this.state.users.map((user) => {
+            return user.id = this.state.initial.id ? this.state.initial : this.state.users
+        })
+        this.setState({
+            editing:false,
+            users:EditedUser,
+            initial:{...this.state.initial, id:'',firstname:'', lastname:''}
+        })
+    }
     render = () => {
         return (
             <div>
@@ -38,11 +60,17 @@ class Crudprops2 extends Component {
                     handleInput={this.handleInput}
                     handleSubmit={this.handleSubmit}
                     initial={this.state.initial}
+                    editing={this.state.editing}
+                    handleCancle={this.handleCancle}
+                    handleTypeEdit={this.handleTypeEdit}
+                    handleUpdate={this.handleUpdate}
                 />
 
                 <Table
                     users={this.state.users}
                     handleDelete={this.handleDelete}
+                    editing={this.state.editing}
+                    handleEdit={this.handleEdit}
                 />
             </div>
         )
