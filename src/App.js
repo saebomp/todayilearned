@@ -29,6 +29,7 @@ import Form_state from './components/Form_state'
 import Crud2 from './components/Crud2/Crud2'
 import Crudprops2 from './components/Crud2/Crudprops2'
 import Crudhooks2 from './components/Crud2/Crudhooks2'
+import Crud3 from './components/Crud2/Crud3'
 
 
 
@@ -65,6 +66,7 @@ function App() {
         <Route exact path="/crud2" component={Crud2} />
         <Route exact path="/crudprops2" component={Crudprops2} />
         <Route exact path="/crudhooks2" component={Crudhooks2} />
+        <Route exact path="/crud3" component={Crud3} />
       </div>
     </Router>
   );
