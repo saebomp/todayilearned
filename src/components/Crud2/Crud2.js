@@ -53,25 +53,31 @@ handleInputChange = (e) => {
 }
 handleUpdate = (e) => {
     e.preventDefault()
+    this.handleUpdateUser(this.state.initialUser.id, this.state.initialUser )
+}
+
+handleUpdateUser = (id, initialUser) => {
     const updatedItem = this.state.users.map((user) => {
-        return user.id === this.state.initialUser.id ? this.state.initialUser : this.state.users
+        return user.id === id ? initialUser : user
     })
     this.setState({
         editing:false,
-        users:updatedItem
+        users:updatedItem,
+        initialUser:{id:'', firstname:'', lastname:''}
     })
 }
+
 render = () => {
     return (
         <div>
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 {!this.state.editing ? (
                     <div>
                         <label for="">Firstname</label>
                         <input type="text" name="firstname" value={this.state.newUser.firstname} onChange={this.handleChange} /> 
                         <label for="">Lastname</label>
                         <input type="text" name="lastname"  value={this.state.newUser.lastname} onChange={this.handleChange} />
-                        <button>Submit</button>
+                        <button onClick={this.handleSubmit}>Submit</button>
                     </div>
                 ) : (
                     <div>

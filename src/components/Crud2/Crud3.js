@@ -30,8 +30,9 @@ handleSubmit = (e) => {
         {id: this.state.users.length + 1,
         firstname:this.state.initialUser.firstname,
         status:false
-    }
-    ]})
+    }],
+    initialUser:{id:'', firstname:'', status:false}
+    })
 }
 handleDelete = (id) => {
     const newUser = this.state.users.filter(el => el.id !== id)
@@ -42,25 +43,42 @@ handleDelete = (id) => {
 handleEdit = (user) => {
     this.setState({editing:true, initialUser: {...user}})
 }
-handleUpdate = (e) => {
-    e.preventDefault()
-    const updatedUser = this.state.users.map(user => (user.id == this.initialUser.id))
+handleInputChange = (e) => {
+    const {value} = e.target;
     this.setState({
-        editing:false,
-        users:{}
+        initialUser: {...this.state.initialUser, firstname:value}
     })
 }
+handleUpdate = (e) => {
+    e.preventDefault();
+    this.handleUpdateUser(this.state.initialUser.id, this.state.initialUser)
+}
+
+handleUpdateUser = (id, initialUser) => {
+    const updatedItem = this.state.users.map((user) => {
+        return user.id === id ? initialUser : user
+    })
+    this.setState({
+        editing:false,
+        users:updatedItem,
+        initialUser:{id:'', firstname:'', status:false}
+    })
+}
+
+
+
+
 render = () => {
     return (
         <>
         {!this.state.editing ? (
             <div>
-            <input type="text" placeholder="first name" onChange={this.handleChange} />
+            <input type="text" placeholder="first name" value={this.state.initialUser.firstname} onChange={this.handleChange} />
             <button onClick={this.handleSubmit}>Submit</button>
         </div> 
         ) : (
         <div>
-            <input type="text" placeholder="first name" onChange={this.handleChange} />
+            <input type="text" placeholder="first name" value={this.state.initialUser.firstname} onChange={this.handleInputChange} />
             <button onClick={() => this.setState({editing:false})}>Cancle</button>
             <button onClick={this.handleUpdate}>Update</button>
         </div> 
