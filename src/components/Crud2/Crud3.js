@@ -65,9 +65,6 @@ handleUpdateUser = (id, initialUser) => {
     })
 }
 
-
-
-
 render = () => {
     return (
         <>
