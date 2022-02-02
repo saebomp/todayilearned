@@ -168,9 +168,15 @@ export let DATA = [
     component : 'Crud3'
   },
   { 
-    id: 30,
+    id: 33,
     path : '/crudhooks3',
     title : 'crudhooks3',
     component : 'Crudhooks3'
+  },
+  { 
+    id: 34,
+    path : '/crudhooks4',
+    title : 'crudhooks4',
+    component : 'Crudhooks4'
   },
 ]

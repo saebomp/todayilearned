@@ -31,6 +31,7 @@ import Crudprops2 from './components/Crud2/Crudprops2'
 import Crudhooks2 from './components/Crud2/Crudhooks2'
 import Crudhooks3 from './components/Crud2/Crudhooks3'
 import Crud3 from './components/Crud2/Crud3'
+import Crud4 from './components/Crud2/Crud4'
 
 
 
@@ -69,6 +70,7 @@ function App() {
         <Route exact path="/crudhooks2" component={Crudhooks2} />
         <Route exact path="/crudhooks3" component={Crudhooks3} />
         <Route exact path="/crud3" component={Crud3} />
+        <Route exact path="/crud4" component={Crud4} />
       </div>
     </Router>
   );
