@@ -32,6 +32,8 @@ import Crudhooks2 from './components/Crud2/Crudhooks2'
 import Crudhooks3 from './components/Crud2/Crudhooks3'
 import Crud3 from './components/Crud2/Crud3'
 import Crud4 from './components/Crud2/Crud4'
+import Count2 from './components/Crud2/Count2'
+import Counthooks2 from './components/Crud2/Counthooks2'
 
 
 
@@ -71,6 +73,8 @@ function App() {
         <Route exact path="/crudhooks3" component={Crudhooks3} />
         <Route exact path="/crud3" component={Crud3} />
         <Route exact path="/crud4" component={Crud4} />
+        <Route exact path="/count2" component={Count2} />
+        <Route exact path="/counthooks2" component={Counthooks2} />
       </div>
     </Router>
   );

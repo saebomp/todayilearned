@@ -55,6 +55,11 @@ handleUpdate = () => {
         initialUser:{...this.state.initialUser, id:'', firstname:'', status:''}
     })
 }
+handleStatus= (index) => {
+    const newUser = [...this.state.users];
+    newUser[index].status = !this.state.users[index].status;
+    this.setState({users:newUser})
+}
 
 render = () => {
     return (
@@ -73,8 +78,8 @@ render = () => {
         )
         }    
         <div>
-            {this.state.users.map(el => (
-                <div><input type='checkbox' checked={el.status} />{el.firstname}
+            {this.state.users.map((el,index )=> (
+                <div><input type='checkbox' checked={el.status} onClick={() => this.handleStatus(index)} />{el.firstname}
                 <button onClick={() => this.handleDelete(el.id)}>x</button>
                 <button onClick={() => this.handleEdit(el)}>edit</button>
                 </div>
